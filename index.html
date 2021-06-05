@@ -86,17 +86,6 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/archives" class="waves-effect waves-light">
-      
-      <i class="fas fa-archive" style="zoom: 0.6;"></i>
-      
-      <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="/about" class="waves-effect waves-light">
       
       <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
@@ -113,17 +102,6 @@
       <i class="fas fa-comments" style="zoom: 0.6;"></i>
       
       <span>留言板</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/friends" class="waves-effect waves-light">
-      
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
-      
-      <span>友情链接</span>
     </a>
     
   </li>
@@ -189,17 +167,6 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/archives" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-archive"></i>
-			
-			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
 		<a href="/about" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-user-circle"></i>
@@ -216,17 +183,6 @@
 			    <i class="fa-fw fas fa-comments"></i>
 			
 			留言板
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/friends" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-address-book"></i>
-			
-			友情链接
 		</a>
           
         </li>
@@ -360,7 +316,7 @@
         <div class="brand">
             <div class="title center-align">
                 
-                OliverLoki
+                目前还在完善中，不是成品
                 
             </div>
 
@@ -396,10 +352,6 @@
             <div class="cover-social-link">
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
-
 
 
 
@@ -416,10 +368,15 @@
 
 
 
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
+
+    <a href="https://blog.csdn.net/Night__breeze" class="tooltipped" target="_blank" data-tooltip="关注我的CSDN: https://blog.csdn.net/Night__breeze" data-position="top" data-delay="50">
+        <i class="fab fa-csdn">C</i>
     </a>
 
+
+    <a href="https://sm.ms/image/nqcaCQZKW1Bt5iR" class="tooltipped" target="_blank" data-tooltip="微信联系我: https://sm.ms/image/nqcaCQZKW1Bt5iR" data-position="top" data-delay="50">
+        <i class="fab fa-weixin"></i>
+    </a>
 </div>
         </div>
     </div>
@@ -447,7 +404,7 @@
         coverSlider.carousel({
             duration: Number('120'),
             fullWidth: true,
-            indicators: 'true' === 'true',
+            indicators: 'false' === 'true',
             onCycleTo() {
                 if (!initUserPressedOrDraggedActive) {
                     // console.log('initUserPressedOrDraggedActive')
@@ -476,6 +433,16 @@
         };
 
         
+        // prev and next cover post.
+        $('#prev-cover').click(function () {
+            coverSlider.carousel('prev');
+            restartPlay();
+        });
+        $('#next-cover').click(function () {
+            coverSlider.carousel('next');
+            restartPlay();
+        });
+        
     });
 </script>
 
@@ -492,12 +459,12 @@
                         <div class="dream">
     
     <div class="title center-align">
-        <i class="far fa-lightbulb"></i>&nbsp;&nbsp;我的梦想
+        <i class="far fa-lightbulb"></i>&nbsp;&nbsp;路漫漫其修远兮，吾将上下而求索
     </div>
     
     <div class="row">
         <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
-            不是每个人都应该像我这样去建造一座水晶大教堂，但是每个人都应该拥有自己的梦想，设计自己的梦想，追求自己的梦想，实现自己的梦想。梦想是生命的灵魂，是心灵的灯塔，是引导人走向成功的信仰。有了崇高的梦想，只要矢志不渝地追求，梦想就会成为现实，奋斗就会变成壮举，生命就会创造奇迹。——罗伯·舒乐
+            
         </div>
     </div>
 </div>
@@ -571,6 +538,56 @@ JDBC为访问不同的数据库提供了一种
                         
                         <a href="/tags/JDBC%EF%BC%8Csql%EF%BC%8Cjava/">
                             <span class="chip bg-color">JDBC，sql，java</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQLl%E7%BB%BF%E8%89%B2%E7%89%88%E5%AE%89%E8%A3%85/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Mysql绿色版安装与Navicat的破解">
+                            
+                            <span class="card-title">Mysql绿色版安装与Navicat的破解</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                Mysql绿色版安装与Navicat的破解绿色版安装步骤1、在官网下载MySQLhttps://dev.mysql.com/downloads/mysql/
+
+注:oracle官网安装需要登录，注册一个账户即可
+2、在根目录新建data文件
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-21
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
+                                    数据库
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/mysql/">
+                            <span class="chip bg-color">mysql</span>
                         </a>
                         
                     </div>
@@ -686,56 +703,6 @@ show
                         
                         <a href="/tags/SQL%E8%AF%AD%E5%8F%A5/">
                             <span class="chip bg-color">SQL语句</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQLl%E7%BB%BF%E8%89%B2%E7%89%88%E5%AE%89%E8%A3%85/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Mysql绿色版安装与Navicat的破解">
-                            
-                            <span class="card-title">Mysql绿色版安装与Navicat的破解</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                Mysql绿色版安装与Navicat的破解绿色版安装步骤1、在官网下载MySQLhttps://dev.mysql.com/downloads/mysql/
-
-注:oracle官网安装需要登录，注册一个账户即可
-2、在根目录新建data文件
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-21
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                    数据库
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/mysql/">
-                            <span class="chip bg-color">mysql</span>
                         </a>
                         
                     </div>
@@ -863,7 +830,7 @@ SQL 的范围包括数据插入、查询、更新和删除，数据库模式创�
                 <span id="year">2021</span>
             
             <span id="year">2021</span>
-            <a href="/about" target="_blank">WangZhe</a>
+            <a href="/about" target="_blank">小loki</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
@@ -939,10 +906,6 @@ SQL 的范围包括数据插入、查询、更新和删除，数据库模式创�
         <div class="col s12 m4 l4 social-link social-statis">
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
-
 
 
 
@@ -959,10 +922,15 @@ SQL 的范围包括数据插入、查询、更新和删除，数据库模式创�
 
 
 
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
+
+    <a href="https://blog.csdn.net/Night__breeze" class="tooltipped" target="_blank" data-tooltip="关注我的CSDN: https://blog.csdn.net/Night__breeze" data-position="top" data-delay="50">
+        <i class="fab fa-csdn">C</i>
     </a>
 
+
+    <a href="https://sm.ms/image/nqcaCQZKW1Bt5iR" class="tooltipped" target="_blank" data-tooltip="微信联系我: https://sm.ms/image/nqcaCQZKW1Bt5iR" data-position="top" data-delay="50">
+        <i class="fab fa-weixin"></i>
+    </a>
 </div>
     </div>
 </footer>
@@ -1107,8 +1075,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
