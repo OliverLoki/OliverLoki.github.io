@@ -79,31 +79,6 @@
     
     
     <entry>
-      <title>Github的常用操作</title>
-      <link href="Git/Github%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
-      <url>Git/Github%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</url>
-      
-        <content type="html"><![CDATA[<h1 id="Github的常用操作"><a href="#Github的常用操作" class="headerlink" title="Github的常用操作"></a>Github的常用操作</h1><h2 id="Github删除已有仓库"><a href="#Github删除已有仓库" class="headerlink" title="Github删除已有仓库"></a>Github删除已有仓库</h2><ol><li><p>首先登录GitHub，进入到当前要删除的库页面，点击Settings 选项卡</p><p><img src="E:\typoradata\img\image-20210604190200723.png" alt="image-20210604190200723"></p></li><li><p>Danger Zone</p><p><img src="https://i.loli.net/2021/06/04/oDxa1jh2PVnXpbt.png" alt="image-20210604190414548"></p><h2 id="github-Pages搭建网站"><a href="#github-Pages搭建网站" class="headerlink" title="github Pages搭建网站"></a>github Pages搭建网站</h2><ol><li><p>创建个人站点–&gt;新建仓库（注：仓库名必须是【用户名.github.io】</p></li><li><p>在仓库下新建index.html的文件即可。</p><p>注意：github pages 仅支持静态网页</p></li></ol></li></ol><blockquote><p>慢慢完善这个</p></blockquote><h1 id="Gitee"><a href="#Gitee" class="headerlink" title="Gitee"></a>Gitee</h1>]]></content>
-      
-      
-      <categories>
-          
-          <category> Git </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> github </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Git学习笔记04 -- Git分支</title>
       <link href="Git/Git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B004%20--%20Git%E5%88%86%E6%94%AF/"/>
       <url>Git/Git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B004%20--%20Git%E5%88%86%E6%94%AF/</url>
@@ -123,6 +98,31 @@
             <tag> github </tag>
             
             <tag> git分支 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Github的常用操作</title>
+      <link href="Git/Github%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
+      <url>Git/Github%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Github的常用操作"><a href="#Github的常用操作" class="headerlink" title="Github的常用操作"></a>Github的常用操作</h1><h2 id="Github删除已有仓库"><a href="#Github删除已有仓库" class="headerlink" title="Github删除已有仓库"></a>Github删除已有仓库</h2><ol><li><p>首先登录GitHub，进入到当前要删除的库页面，点击Settings 选项卡</p><p><img src="E:\typoradata\img\image-20210604190200723.png" alt="image-20210604190200723"></p></li><li><p>Danger Zone</p><p><img src="https://i.loli.net/2021/06/04/oDxa1jh2PVnXpbt.png" alt="image-20210604190414548"></p><h2 id="github-Pages搭建网站"><a href="#github-Pages搭建网站" class="headerlink" title="github Pages搭建网站"></a>github Pages搭建网站</h2><ol><li><p>创建个人站点–&gt;新建仓库（注：仓库名必须是【用户名.github.io】</p></li><li><p>在仓库下新建index.html的文件即可。</p><p>注意：github pages 仅支持静态网页</p></li></ol></li></ol><blockquote><p>慢慢完善这个</p></blockquote><h1 id="Gitee"><a href="#Gitee" class="headerlink" title="Gitee"></a>Gitee</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> Git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> github </tag>
             
         </tags>
       
