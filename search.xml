@@ -473,35 +473,6 @@
     
     
     <entry>
-      <title>解决maven默认不允许src目录下xml等文件导出到target目录</title>
-      <link href="Mybatis/%E8%A7%A3%E5%86%B3maven%E9%BB%98%E8%AE%A4%E4%B8%8D%E5%85%81%E8%AE%B8src%E7%9B%AE%E5%BD%95%E4%B8%8Bxml%E7%AD%89%E6%96%87%E4%BB%B6%E5%AF%BC%E5%87%BA%E5%88%B0target%E7%9B%AE%E5%BD%95/"/>
-      <url>Mybatis/%E8%A7%A3%E5%86%B3maven%E9%BB%98%E8%AE%A4%E4%B8%8D%E5%85%81%E8%AE%B8src%E7%9B%AE%E5%BD%95%E4%B8%8Bxml%E7%AD%89%E6%96%87%E4%BB%B6%E5%AF%BC%E5%87%BA%E5%88%B0target%E7%9B%AE%E5%BD%95/</url>
-      
-        <content type="html"><![CDATA[<h2 id="解决maven默认不允许src目录下xml等文件导出到target目录"><a href="#解决maven默认不允许src目录下xml等文件导出到target目录" class="headerlink" title="解决maven默认不允许src目录下xml等文件导出到target目录"></a>解决maven默认不允许src目录下xml等文件导出到target目录</h2><p><strong>maven项目中有一个目录标准，其中src下的xml文件构建时不会被输出到target/classes目录下</strong>，解决方法如下</p><p>在maven核心配置文件 — pom.xml中配置以下内容</p><blockquote><p>XML文件不应该放在src/main/java中，而应该放在src/main/resources中。Maven将只编译src/main/java中的java源代码，默认情况下会忽略其中的所有其他内容。</p><p>如果希望将XML保存在src/main/java中，可以将其添加到POM的资源部分。我建议不要这样做，尽量将您想要的非Java文件保存在src/main/resources的工件中。</p></blockquote><pre class=" language-xml"><code class="language-xml">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>build</span><span class="token punctuation">></span></span>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resources</span><span class="token punctuation">></span></span>            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resource</span><span class="token punctuation">></span></span>                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>directory</span><span class="token punctuation">></span></span>src/main/java<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>directory</span><span class="token punctuation">></span></span>                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>includes</span><span class="token punctuation">></span></span>                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>include</span><span class="token punctuation">></span></span>**/*.properties<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>include</span><span class="token punctuation">></span></span>                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>include</span><span class="token punctuation">></span></span>**/*.xml<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>include</span><span class="token punctuation">></span></span>                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>includes</span><span class="token punctuation">></span></span>                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filtering</span><span class="token punctuation">></span></span>false<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filtering</span><span class="token punctuation">></span></span>            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resource</span><span class="token punctuation">></span></span>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resources</span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>build</span><span class="token punctuation">></span></span></code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> Mybatis </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> mybatis </tag>
-            
-            <tag> xml </tag>
-            
-            <tag> maven </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>使用占位符进行like模糊查询时遇到变量该怎么写sql</title>
       <link href="%E6%95%B0%E6%8D%AE%E5%BA%93/%E4%BD%BF%E7%94%A8%E5%8D%A0%E4%BD%8D%E7%AC%A6%E8%BF%9B%E8%A1%8Clike%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2%E6%97%B6%E9%81%87%E5%88%B0%E5%8F%98%E9%87%8F%E8%AF%A5%E6%80%8E%E4%B9%88%E5%86%99sql/"/>
       <url>%E6%95%B0%E6%8D%AE%E5%BA%93/%E4%BD%BF%E7%94%A8%E5%8D%A0%E4%BD%8D%E7%AC%A6%E8%BF%9B%E8%A1%8Clike%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2%E6%97%B6%E9%81%87%E5%88%B0%E5%8F%98%E9%87%8F%E8%AF%A5%E6%80%8E%E4%B9%88%E5%86%99sql/</url>
@@ -523,6 +494,35 @@
             <tag> sql </tag>
             
             <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>解决maven默认不允许src目录下xml等文件导出到target目录</title>
+      <link href="Mybatis/%E8%A7%A3%E5%86%B3maven%E9%BB%98%E8%AE%A4%E4%B8%8D%E5%85%81%E8%AE%B8src%E7%9B%AE%E5%BD%95%E4%B8%8Bxml%E7%AD%89%E6%96%87%E4%BB%B6%E5%AF%BC%E5%87%BA%E5%88%B0target%E7%9B%AE%E5%BD%95/"/>
+      <url>Mybatis/%E8%A7%A3%E5%86%B3maven%E9%BB%98%E8%AE%A4%E4%B8%8D%E5%85%81%E8%AE%B8src%E7%9B%AE%E5%BD%95%E4%B8%8Bxml%E7%AD%89%E6%96%87%E4%BB%B6%E5%AF%BC%E5%87%BA%E5%88%B0target%E7%9B%AE%E5%BD%95/</url>
+      
+        <content type="html"><![CDATA[<h2 id="解决maven默认不允许src目录下xml等文件导出到target目录"><a href="#解决maven默认不允许src目录下xml等文件导出到target目录" class="headerlink" title="解决maven默认不允许src目录下xml等文件导出到target目录"></a>解决maven默认不允许src目录下xml等文件导出到target目录</h2><p><strong>maven项目中有一个目录标准，其中src下的xml文件构建时不会被输出到target/classes目录下</strong>，解决方法如下</p><p>在maven核心配置文件 — pom.xml中配置以下内容</p><blockquote><p>XML文件不应该放在src/main/java中，而应该放在src/main/resources中。Maven将只编译src/main/java中的java源代码，默认情况下会忽略其中的所有其他内容。</p><p>如果希望将XML保存在src/main/java中，可以将其添加到POM的资源部分。我建议不要这样做，尽量将您想要的非Java文件保存在src/main/resources的工件中。</p></blockquote><pre class=" language-xml"><code class="language-xml">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>build</span><span class="token punctuation">></span></span>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resources</span><span class="token punctuation">></span></span>            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resource</span><span class="token punctuation">></span></span>                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>directory</span><span class="token punctuation">></span></span>src/main/java<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>directory</span><span class="token punctuation">></span></span>                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>includes</span><span class="token punctuation">></span></span>                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>include</span><span class="token punctuation">></span></span>**/*.properties<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>include</span><span class="token punctuation">></span></span>                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>include</span><span class="token punctuation">></span></span>**/*.xml<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>include</span><span class="token punctuation">></span></span>                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>includes</span><span class="token punctuation">></span></span>                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filtering</span><span class="token punctuation">></span></span>false<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filtering</span><span class="token punctuation">></span></span>            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resource</span><span class="token punctuation">></span></span>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resources</span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>build</span><span class="token punctuation">></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Mybatis </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> mybatis </tag>
+            
+            <tag> xml </tag>
+            
+            <tag> maven </tag>
             
         </tags>
       
@@ -628,9 +628,9 @@
       
         <tags>
             
-            <tag> Servlet </tag>
-            
             <tag> java </tag>
+            
+            <tag> Servlet </tag>
             
         </tags>
       
