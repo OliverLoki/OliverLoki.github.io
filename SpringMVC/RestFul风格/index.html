@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="让你彻底理解Servlet中请求转发&amp;重定向, Loki’s blog">
+    <meta name="keywords" content="RestFul风格url, Loki’s blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>让你彻底理解Servlet中请求转发&amp;重定向 | Loki’s blog</title>
+    <title>RestFul风格url | Loki’s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -266,12 +266,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">让你彻底理解Servlet中请求转发&amp;重定向</h1>
+                    <h1 class="description center-align post-title">RestFul风格url</h1>
                 </div>
             </div>
         </div>
@@ -387,12 +387,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/java/">
-                                <span class="chip bg-color">java</span>
+                            <a href="/tags/MVC/">
+                                <span class="chip bg-color">MVC</span>
                             </a>
                         
-                            <a href="/tags/Servlet/">
-                                <span class="chip bg-color">Servlet</span>
+                            <a href="/tags/url/">
+                                <span class="chip bg-color">url</span>
                             </a>
                         
                     </div>
@@ -403,8 +403,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/java-web/" class="post-category">
-                                java web
+                            <a href="/categories/SpringMVC/" class="post-category">
+                                SpringMVC
                             </a>
                         
                     </div>
@@ -416,28 +416,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-20
+                    2021-06-21
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-06
+                    2021-06-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    709
+                    705
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -457,52 +457,96 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote>
-<p>不管是请求转发还是请求重定向，都是当在前端的某个事件触发了servlet中的转发或者重定向的代码后，发生的页面跳转行为，但是不同的是二者页面跳转的内部操作有很大的不同，本文来简短的讨论一下（水平有限，会持续优化）</p>
+                <h2 id="RestFul-风格"><a href="#RestFul-风格" class="headerlink" title="RestFul 风格"></a>RestFul 风格</h2><p><strong>概念</strong></p>
+<p>Restful就是一个资源定位及资源操作的风格。不是标准也不是协议，只是一种风格。基于这个风格设计的软件可以更简洁，更有层次，更易于实现缓存等机制。</p>
+<p><strong>功能</strong></p>
+<p>资源：互联网所有的事物都可以被抽象为资源</p>
+<p>资源操作：使用POST、DELETE、PUT、GET，使用不同方法对资源进行操作。</p>
+<p>分别对应 添加、 删除、修改、查询。</p>
+<blockquote>
+<p><strong>传统方式操作资源</strong>  ：通过不同的参数来实现不同的效果！方法单一，post 和 get</p>
+<p>​    <a target="_blank" rel="noopener" href="http://127.0.0.1/item/queryItem.action?id=1">http://127.0.0.1/item/queryItem.action?id=1</a> 查询,GET</p>
+<p>​    <a target="_blank" rel="noopener" href="http://127.0.0.1/item/saveItem.action">http://127.0.0.1/item/saveItem.action</a> 新增,POST</p>
+<p>​    <a target="_blank" rel="noopener" href="http://127.0.0.1/item/updateItem.action">http://127.0.0.1/item/updateItem.action</a> 更新,POST</p>
+<p>​    <a target="_blank" rel="noopener" href="http://127.0.0.1/item/deleteItem.action?id=1">http://127.0.0.1/item/deleteItem.action?id=1</a> 删除,GET或POST</p>
+<p><strong>使用RESTful操作资源</strong> ：可以通过不同的请求方式来实现不同的效果！如下：请求地址一样，但是功能可以不同！</p>
+<p>​    <a target="_blank" rel="noopener" href="http://127.0.0.1/item/1">http://127.0.0.1/item/1</a> 查询,GET</p>
+<p>​    <a target="_blank" rel="noopener" href="http://127.0.0.1/item">http://127.0.0.1/item</a> 新增,POST</p>
+<p>​    <a target="_blank" rel="noopener" href="http://127.0.0.1/item">http://127.0.0.1/item</a> 更新,PUT</p>
+<p>​    <a target="_blank" rel="noopener" href="http://127.0.0.1/item/1">http://127.0.0.1/item/1</a> 删除,DELETE</p>
 </blockquote>
-<p>@[toc]</p>
-<h2 id="请求转发"><a href="#请求转发" class="headerlink" title="请求转发"></a>请求转发</h2><pre class=" language-java"><code class="language-java">request<span class="token punctuation">.</span><span class="token function">getRequestDispatcher</span><span class="token punctuation">(</span>String url<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forward</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h3 id="RestFul–Demo"><a href="#RestFul–Demo" class="headerlink" title="RestFul–Demo"></a>RestFul–Demo</h3><p><strong>Demo1</strong>:如何使用RestFul风格</p>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Controller</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RestFul</span>风格 <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/func1/&amp;#123;a&amp;#125;/&amp;#123;b&amp;#125;"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> String <span class="token function">restFul1</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span> <span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token annotation punctuation">@PathVariable</span> <span class="token keyword">int</span> b<span class="token punctuation">,</span> Model model<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> sum <span class="token operator">=</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+        model<span class="token punctuation">.</span><span class="token function">addAttribute</span><span class="token punctuation">(</span><span class="token string">"msg"</span><span class="token punctuation">,</span> <span class="token string">"结果为"</span> <span class="token operator">+</span> sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token string">"test"</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 </code></pre>
-<h3 id="请求转发的特点"><a href="#请求转发的特点" class="headerlink" title="请求转发的特点"></a>请求转发的特点</h3><ul>
-<li><p><strong>地址栏：forward是服务器请求资源,服务器直接访问目标地址的URL,把那个URL的响应内容读取过来,然后把这些内容再发给浏览器.浏览器根本不知道服务器发送的内容从哪里来的,因为这个跳转过程实在服务器实现的，并不是在客户端实现的所以客户端并不知道这个跳转动作，所以它的地址栏还是原来的地址.</strong><br><img src="https://img-blog.csdnimg.cn/img_convert/7c3c7ff52d20bf9460e238136d174db4.png" alt="image-20210420155847218.png"></p>
-</li>
-<li><p><strong>状态码：200</strong></p>
-</li>
-<li><p><strong>数据共享：转发页面和转发到的页面可以共享request域的数据，并且可以访问WEB-INF下的数据</strong></p>
-</li>
-<li><p><strong>应用：一般用于用户登陆的时候,根据角色转发到相应的模块</strong></p>
-</li>
-<li><p><strong>效率较高</strong></p>
-</li>
-<li><p><strong>示意图</strong>：<br><img src="https://img-blog.csdnimg.cn/img_convert/2ff88cf658039bc0f35609b16df8a4a3.png" alt="image-20210420160654838.png"></p>
-</li>
-</ul>
-<h2 id="请求重定向"><a href="#请求重定向" class="headerlink" title="请求重定向"></a>请求重定向</h2><pre class=" language-java"><code class="language-java">response<span class="token punctuation">.</span><span class="token function">sendRedirect</span><span class="token punctuation">(</span>String url<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//返回登录界面</span>
+<p><img src="https://i.loli.net/2021/06/21/CVZTUjn97lr1eyX.png" alt="image-20210621155749792"></p>
+<p><strong>Demo2</strong>:修改形参使可玩性高</p>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/func2/&amp;#123;a&amp;#125;/&amp;#123;b&amp;#125;"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> String <span class="token function">restFul2</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span> <span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token annotation punctuation">@PathVariable</span> String b<span class="token punctuation">,</span> Model model<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    String sum <span class="token operator">=</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+    model<span class="token punctuation">.</span><span class="token function">addAttribute</span><span class="token punctuation">(</span><span class="token string">"msg"</span><span class="token punctuation">,</span> <span class="token string">"结果为"</span> <span class="token operator">+</span> sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token string">"test"</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 </code></pre>
-<h3 id="请求重定向的特点"><a href="#请求重定向的特点" class="headerlink" title="请求重定向的特点"></a>请求重定向的特点</h3><ul>
-<li><strong>地址栏:是服务端根据逻辑,发送一个,告诉浏览器重新去请求那个地址.所以地址栏显示的是新的URL。转发是服务器行为，重定向是客户端行为。</strong></li>
+<p><img src="https://i.loli.net/2021/06/21/wLEtA2uRNgHCsqW.png" alt="image-20210621160432982"></p>
+<p><strong>Demo3</strong>：请求路径一样，但是方法不一样</p>
+<pre class=" language-java"><code class="language-java">  <span class="token comment" spellcheck="true">//方法级别的注解变体</span>
+    <span class="token comment" spellcheck="true">//url默认请求方式为get方式</span>
+    <span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"/func3/&amp;#123;a&amp;#125;/&amp;#123;b&amp;#125;"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> String <span class="token function">restFul3</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span> <span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token annotation punctuation">@PathVariable</span> <span class="token keyword">int</span> b<span class="token punctuation">,</span> Model model<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> sum <span class="token operator">=</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+        model<span class="token punctuation">.</span><span class="token function">addAttribute</span><span class="token punctuation">(</span><span class="token string">"msg"</span><span class="token punctuation">,</span> <span class="token string">"相加结果为"</span> <span class="token operator">+</span> sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token string">"test"</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//localhost:8080/loki/fun3/3/4  -->12</span>
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"/func3/&amp;#123;a&amp;#125;/&amp;#123;b&amp;#125;"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> String <span class="token function">restFul4</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span> <span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token annotation punctuation">@PathVariable</span> <span class="token keyword">int</span> b<span class="token punctuation">,</span> Model model<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> sum <span class="token operator">=</span> a <span class="token operator">*</span> b<span class="token punctuation">;</span>
+        model<span class="token punctuation">.</span><span class="token function">addAttribute</span><span class="token punctuation">(</span><span class="token string">"msg"</span><span class="token punctuation">,</span> <span class="token string">"相乘结果为"</span> <span class="token operator">+</span> sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token string">"test"</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<p>会走restFul4</p>
+<p><img src="https://i.loli.net/2021/06/21/fj5XW8uYRch7T46.png" alt="image-20210621160549614"></p>
+<p>使用路径变量的好处</p>
+<ol>
+<li><ul>
+<li>使路径变得更加简洁；</li>
+<li>获得参数更加方便，框架会自动进行类型转换。</li>
+<li>通过路径变量的类型可以约束访问参数，如果类型不一样，则访问不到对应的请求方法，如这里访问是的路径是/commit/1/a，则路径与方法不匹配，而不会是参数转换失败。</li>
 </ul>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/de12cc8f024e35d341b53788ac107d0b.png" alt="image-20210420160025161.png"></p>
+</li>
+</ol>
+<p><strong>小结：</strong></p>
+<blockquote>
 <ul>
-<li><p><strong>状态码:302</strong></p>
+<li><p>@PathVariable  </p>
 </li>
-<li><p><strong>数据共享：不能共享request域的数据</strong>，<strong>只能访问session域中的数据</strong></p>
-</li>
-<li><p><strong>应用:一般用于用户注销登陆时返回主页面和跳转到其它的网站等</strong>**</p>
-</li>
-<li><p><strong>效率偏低</strong></p>
-</li>
-<li><p><strong>示意图</strong>：<br><img src="https://img-blog.csdnimg.cn/img_convert/82cc08cd1e83c7914cecd260699f40ab.png" alt="image-20210420160758252.png"></p>
-</li>
-</ul>
-<h2 id="转发和重定向路径问题："><a href="#转发和重定向路径问题：" class="headerlink" title="转发和重定向路径问题："></a>转发和重定向路径问题：</h2><p>1）使用相对路径在重定向和转发中没有区别<br>2）重定向和请求转发使用绝对路径时，根/路径代表了不同含义</p>
+<li><p>RequestMapping</p>
+<p>​    衍生注解</p>
 <ul>
-<li><p>重定向response.sendRedirect(“xxx”)是服务器向客户端发送一个请求头信息，由客户端再请求一次服务器。/指的Tomcat的根目录,写绝对路径应该写成”/当前Web程序根名称/资源名” 。如”/WebModule/login.jsp”  &amp;&amp;   “/bbs/servlet/LoginServlet”</p>
-</li>
-<li><p>转发是在服务器内部进行的，写绝对路径/开头指的是当前的Web应用程序。绝对路径写法就是”/login.jsp”或”/servlet/LoginServlet”。</p>
+<li>@GetMapping</li>
+<li>@PostMapping</li>
+<li>@PutMapping</li>
+<li>@DeleteMapping</li>
+<li>@PatchMapping</li>
+</ul>
 </li>
 </ul>
-<p><strong>总结</strong>：以上要注意是区分是从服务器外的请求，还在是内部转发，从服务器外的请求，从Tomcat根写起(就是要包括当前Web的根)；是服务器内部的转发，很简单了，因为在当前服务器内，/写起指的就是当前Web的根目录。<br><img src="https://img-blog.csdnimg.cn/img_convert/61c1bf23ebbc2e257611ab7d5fa7eaa1.png" alt="image-20210420154534679"></p>
+</blockquote>
+<p>Spring MVC 的 @RequestMapping 注解能够处理 HTTP 请求的方法, 比如 <code>GET</code>, <code>PUT</code>, <code>POST</code>,<code>DELETE</code> 以及 <code>PATCH</code></p>
+<p><strong>所有的地址栏请求默认都会是 HTTP GET 类型的。</strong></p>
+<p><strong>@GetMapping 是一个组合注解，平时使用的会比较多</strong></p>
+<blockquote>
+<p>相当于@RequestMapping(method =RequestMethod.GET) </p>
+</blockquote>
 
                 
             </div>
@@ -529,7 +573,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://oliverloki.github.io/java-web/%E8%AE%A9%E4%BD%A0%E5%BD%BB%E5%BA%95%E7%90%86%E8%A7%A3Servlet%E4%B8%AD%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91&%E9%87%8D%E5%AE%9A%E5%90%91/">https://oliverloki.github.io/java-web/%E8%AE%A9%E4%BD%A0%E5%BD%BB%E5%BA%95%E7%90%86%E8%A7%A3Servlet%E4%B8%AD%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91&%E9%87%8D%E5%AE%9A%E5%90%91/</a>
+                    <a href="https://oliverloki.github.io/SpringMVC/RestFul%E9%A3%8E%E6%A0%BC/">https://oliverloki.github.io/SpringMVC/RestFul%E9%A3%8E%E6%A0%BC/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -567,12 +611,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/java/">
-                                    <span class="chip bg-color">java</span>
+                                <a href="/tags/MVC/">
+                                    <span class="chip bg-color">MVC</span>
                                 </a>
                             
-                                <a href="/tags/Servlet/">
-                                    <span class="chip bg-color">Servlet</span>
+                                <a href="/tags/url/">
+                                    <span class="chip bg-color">url</span>
                                 </a>
                             
                         </div>
@@ -746,13 +790,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/java-web/Tomcat%E5%90%AF%E5%8A%A8%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81&%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+                <a href="/SpringMVC/SpringMVC/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Tomcat启动出现乱码&amp;解决方法">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="SpringMVC学习">
                         
-                        <span class="card-title">Tomcat启动出现乱码&amp;解决方法</span>
+                        <span class="card-title">SpringMVC学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -763,14 +807,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-07
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-23
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/java-web/" class="post-category">
-                                    java web
+                            <a href="/categories/SpringMVC/" class="post-category">
+                                    SpringMVC
                                 </a>
                             
                             
@@ -780,12 +824,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/tomcat/">
-                        <span class="chip bg-color">tomcat</span>
+                    <a href="/tags/MVC/">
+                        <span class="chip bg-color">MVC</span>
                     </a>
                     
-                    <a href="/tags/xml/">
-                        <span class="chip bg-color">xml</span>
+                    <a href="/tags/java-web/">
+                        <span class="chip bg-color">java web</span>
                     </a>
                     
                 </div>
@@ -799,13 +843,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/java-web/javaweb/">
+                <a href="/Spring/Spring/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="javaweb基础学习">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Spring5笔记">
                         
-                        <span class="card-title">javaweb基础学习</span>
+                        <span class="card-title">Spring5笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -816,14 +860,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-19
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/java-web/" class="post-category">
-                                    java web
+                            <a href="/categories/Spring/" class="post-category">
+                                    Spring
                                 </a>
                             
                             
@@ -833,20 +877,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/maven/">
-                        <span class="chip bg-color">maven</span>
-                    </a>
-                    
-                    <a href="/tags/servlet/">
-                        <span class="chip bg-color">servlet</span>
-                    </a>
-                    
-                    <a href="/tags/session/">
-                        <span class="chip bg-color">session</span>
-                    </a>
-                    
-                    <a href="/tags/jsp/">
-                        <span class="chip bg-color">jsp</span>
+                    <a href="/tags/Spring/">
+                        <span class="chip bg-color">Spring</span>
                     </a>
                     
                 </div>
