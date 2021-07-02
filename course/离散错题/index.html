@@ -1,0 +1,1966 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Git学习笔记01 --- 知识储备, Loki’s blog">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Git学习笔记01 --- 知识储备 | Loki’s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Loki’s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>博客首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>文章统计</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/life" class="waves-effect waves-light">
+      
+      <i class="fas fa-procedures" style="zoom: 0.6;"></i>
+      
+      <span>生活&随想</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Loki’s blog</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			博客首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			博客统计
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/life" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-procedures"></i>
+			
+			生活&随想
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/OliverLoki" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/OliverLoki" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Git学习笔记01 --- 知识储备</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E6%9C%9F%E6%9C%AB%E6%95%B4%E7%90%86/">
+                                <span class="chip bg-color">离散数学期末整理</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/course/" class="post-category">
+                                course
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-06-01
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-07-02
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    17 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="第二章–命题逻辑"><a href="#第二章–命题逻辑" class="headerlink" title="第二章–命题逻辑"></a>第二章–命题逻辑</h2><h3 id="命题公式化"><a href="#命题公式化" class="headerlink" title="命题公式化"></a>命题公式化</h3><ul>
+<li>在命题演算中,语句为真为假的一种性质称为(真值)。</li>
+<li>设p:天下雨,q:我骑车上班。命题”只有天不下雨,我才骑车上班。”,可符号化为( <img src="https://p.ananas.chaoxing.com/star3/origin/a974d944c4c9a9817b5067b84c59edeb.png" alt="img"> ）</li>
+</ul>
+<h3 id="合式公式"><a href="#合式公式" class="headerlink" title="合式公式"></a>合式公式</h3><p><strong>我的思路，合式公式要保证没有歧义，所以运算优先级相同的要注意是否会产生歧义</strong></p>
+<ul>
+<li><p><strong>是合式公式</strong></p>
+<p><img src="https://i.loli.net/2021/06/24/cD8hXy9bQO1Upiq.png" alt="img"></p>
+<p>(A  -&gt; B) -&gt; C </p>
+</li>
+<li><p><strong>不是合式公式</strong></p>
+<p>(A  -&gt; D -&gt; B) -&gt; C </p>
+</li>
+</ul>
+<h3 id="成真-假赋值"><a href="#成真-假赋值" class="headerlink" title="成真/假赋值"></a>成真/假赋值</h3><ol>
+<li><strong>画真值表即可</strong></li>
+<li><strong>注意联结词的成真假顺序</strong></li>
+</ol>
+<p>命题公式<img src="https://p.ananas.chaoxing.com/star3/origin/943eac755ca125aeff06651a24eab01a.png" alt="img"> 与命题公式<img src="https://p.ananas.chaoxing.com/star3/origin/de5628f384070831815169091c988725.png" alt="img"> 共同的成真赋值是( C)。</p>
+<ul>
+<li><em>A、</em><a href="javascript:void(0)">10,11</a></li>
+<li><em>B、</em><a href="javascript:void(0)">11,10,01</a></li>
+<li><em>C、</em><a href="javascript:void(0)">所有指派</a></li>
+<li><em>D、</em>无</li>
+</ul>
+<h3 id="判断公式类型"><a href="#判断公式类型" class="headerlink" title="判断公式类型"></a>判断公式类型</h3><p><strong>简单用真值表，复杂用等值代换</strong></p>
+<ul>
+<li><p>重言式的否定是(永假式)</p>
+<p>可满足式的否定是(可满足式)</p>
+</li>
+<li><p>矛盾式</p>
+<p><a href="javascript:void(0)">(p ˄¬ (q→p)) ˄ (r ˄ q)</a></p>
+</li>
+<li><p>可满足式</p>
+<p><a href="javascript:void(0)">(p ↔¬ r) →(p↔ r)</a></p>
+</li>
+</ul>
+<h3 id="证明公式等值"><a href="#证明公式等值" class="headerlink" title="证明公式等值"></a>证明公式等值</h3><p><strong>熟悉构造方法（1的构造），常用的等值式</strong></p>
+<h3 id="析取合取范式"><a href="#析取合取范式" class="headerlink" title="析取合取范式"></a>析取合取范式</h3><p><strong>析取范式：有限个合取式的析取</strong></p>
+<p><strong>合取范式：有限个析取式的合取</strong></p>
+<p>下面公式既是析取范式又是合取范式的是( )。</p>
+<p><img src="https://i.loli.net/2021/06/27/KvTeUrVBQdtamFs.png" alt="image-20210627190347231"></p>
+<p>我的答案：D</p>
+<h3 id="极小-大项"><a href="#极小-大项" class="headerlink" title="极小/大项"></a>极小/大项</h3><p><strong>极小项–合取式—成真赋值—-析取</strong>–m</p>
+<p><strong>极大项–析取式—成假命题—-合取</strong>–M</p>
+<p>关于命题变元P,Q和R的极小项<img src="https://p.ananas.chaoxing.com/star3/origin/a5e7a62525bc420b9be0a14efeaa59d4.png" alt="img">表示( )。</p>
+<ul>
+<li><em>A、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/53952d5c6451643a56735becf9cd4de2.png" alt="img"></a></li>
+<li><em>B、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/c94af8e9cba522e2bb4b86e05970e43c.png" alt="img"></a></li>
+<li><em>C、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/27ce5abfb02fcb01d8313f70d2444d26.png" alt="img"></a></li>
+<li><em>D、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/ad3a9fcebb11166f20e72d02fabf1e4a.png" alt="img"></a></li>
+</ul>
+<p>关于命题变元P,Q和R的极大项<img src="https://p.ananas.chaoxing.com/star3/origin/3812dc2f69310bd24185016eb37abc98.png" alt="img">表示( )。</p>
+<ul>
+<li><em>A、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/d9b2b13a2c17f0b19f6f413423b3936d.png" alt="img"></a></li>
+<li><em>B、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/7a3fed7b942221e4bfaf859f21cb8549.png" alt="img"></a></li>
+<li><em>C、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/4e6de997e1ab35b800730a2755199148.png" alt="img"></a></li>
+<li><em>D、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/5b065a079610375a37e7799d1e52637d.png" alt="img"></a></li>
+</ul>
+<p>我的答案：C得分： 1.0分</p>
+<h3 id="主析取合取范式"><a href="#主析取合取范式" class="headerlink" title="主析取合取范式"></a>主析取合取范式</h3><h4 id="法一；真值表法"><a href="#法一；真值表法" class="headerlink" title="法一；真值表法"></a>法一；真值表法</h4><table>
+<thead>
+<tr>
+<th></th>
+<th>极小项/极大项</th>
+<th>成真/假赋值</th>
+<th>所求公式的值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>m0</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>m1</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>m….</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="法二：等值演算法"><a href="#法二：等值演算法" class="headerlink" title="法二：等值演算法"></a>法二：等值演算法</h4><p>已知公式<img src="https://p.ananas.chaoxing.com/star3/origin/e2c3d99f85777a3418f4a8224da0898f.png" alt="img">的主析取范式为<img src="https://p.ananas.chaoxing.com/star3/origin/379f511f859c37dbcd977ad747edb6bf.png" alt="img">,求公式<img src="https://p.ananas.chaoxing.com/star3/origin/e2c3d99f85777a3418f4a8224da0898f.png" alt="img">的真值为1的赋值。</p>
+<ul>
+<li><em>A、</em><a href="javascript:void(0)">010,100,110,111</a></li>
+<li><em>B、</em><a href="javascript:void(0)">000,001,011,111</a></li>
+<li><em>C、</em><a href="javascript:void(0)">000,001,011,110,111</a></li>
+<li><em>D、</em><a href="javascript:void(0)">010,100,101</a></li>
+</ul>
+<p>我的答案：D</p>
+<h3 id="求复合命题真值"><a href="#求复合命题真值" class="headerlink" title="求复合命题真值"></a>求复合命题真值</h3><p><strong>有手就行</strong></p>
+<p>设p,r为真命题,q,s为假命题,则复合命题<img src="https://p.ananas.chaoxing.com/star3/origin/19650478dfdfbf033336acb79728cd98.png" alt="img">的真值为____</p>
+<p>1</p>
+<h3 id="命题公式有多少子公式"><a href="#命题公式有多少子公式" class="headerlink" title="命题公式有多少子公式"></a>命题公式有多少子公式</h3><ol>
+<li><strong>有几个变量</strong></li>
+<li><strong>变量的否定</strong></li>
+<li><strong>变量从少到多加起来（注意加起来的否定）</strong></li>
+</ol>
+<p>命题公式<img src="https://p.ananas.chaoxing.com/star3/origin/417ee924aad06c1a90a58bcab27c5c79.png" alt="img">有____个子公式。</p>
+<p>答案：11</p>
+<p>命题公式<img src="https://p.ananas.chaoxing.com/star3/origin/6a9c21ab0bc36caab60d4d236b0f24e3.png" alt="img">有____个子公式。</p>
+<p>答案：10</p>
+<p>命题公式<img src="https://p.ananas.chaoxing.com/star3/origin/19207aba63a2250b91e689a89822dfd6.png" alt="img">有____个子公式。</p>
+<p>答案：13</p>
+<h3 id="命题公式的层数"><a href="#命题公式的层数" class="headerlink" title="命题公式的层数"></a>命题公式的层数</h3><p><strong>一个联结词加一层，联结词两边取最大值加一</strong></p>
+<p>命题公式<img src="https://p.ananas.chaoxing.com/star3/origin/e3179e29cfbe7bf32ea52a885a5dfc36.png" alt="img">的层数是____。</p>
+<p>答案：4</p>
+<p>命题公式<img src="https://p.ananas.chaoxing.com/star3/origin/97671ee026c6f5cbfd7104643283b517.png" alt="img">的层数是____。</p>
+<p>答案：4</p>
+<p>命题公式<img src="https://p.ananas.chaoxing.com/star3/origin/978474a80cbf83efeeff597cc956dfe1.png" alt="img">的层数是__5__。</p>
+<p>答案：5</p>
+<h3 id="填空"><a href="#填空" class="headerlink" title="填空"></a>填空</h3><ul>
+<li><p>合取范式具有形式A1∧A2∧…∧An(n≥1),其中A1,A2,…,An是由命题变元或其____所组成的析取式。 </p>
+<p>否定</p>
+</li>
+<li><p>A是矛盾式当且仅当A的主合取范式包含A的所有____。</p>
+<p>极大项</p>
+</li>
+<li><p>A是可满足式当且仅当A的主析取范式至少包含A的一个____</p>
+<p>极小项</p>
+</li>
+</ul>
+<h3 id="构造式二难"><a href="#构造式二难" class="headerlink" title="构造式二难"></a>构造式二难</h3><ul>
+<li><img src="https://p.ananas.chaoxing.com/star3/origin/1a882bdb1b623934b8359f5c418ca77e.png" alt="img"> 是____规则。</li>
+</ul>
+<p>简单构造式二难推理</p>
+<ul>
+<li><img src="https://p.ananas.chaoxing.com/star3/origin/71ebfbc805835e674914f7b779134fa1.png" alt="img"> 是____规则。</li>
+</ul>
+<p>简单破坏式二难推理</p>
+<ul>
+<li><img src="https://p.ananas.chaoxing.com/star3/origin/ca881d6bae58a534373a2a52a56c6bae.png" alt="img"> 是____规则。</li>
+</ul>
+<p>复杂构造式二难推理</p>
+<ul>
+<li><img src="https://p.ananas.chaoxing.com/star3/origin/8ca404c2f12deb6fea4fe9a3717c4b2d.png" alt="img"> 是____规则。</li>
+</ul>
+<p>复杂破坏式二难推理</p>
+<h3 id="命题推理逻辑"><a href="#命题推理逻辑" class="headerlink" title="命题推理逻辑"></a>命题推理逻辑</h3><ul>
+<li>前提 <img src="https://p.ananas.chaoxing.com/star3/origin/e3bbb321a6e1b96a14aa3910111718f2.png" alt="img"><br>结论:<img src="https://p.ananas.chaoxing.com/star3/origin/ffc3c85c70ba338784bb7411e6b0b6a9.png" alt="img"><br>证明:<br>① <img src="https://p.ananas.chaoxing.com/star3/origin/582a63465e4977db1d48877c36529c7e.png" alt="img"> ( ____)规则<br>② <img src="https://p.ananas.chaoxing.com/star3/origin/8580afdb9872caf190f2c78bbf1b539c.png" alt="img"> 前提引入规则<br>③ <img src="https://p.ananas.chaoxing.com/star3/origin/f43c4a5c94d09e24b0ec513844c86c64.png" alt="img"> ①②析取三段论规则<br>④ <img src="https://p.ananas.chaoxing.com/star3/origin/a9eee492955943218c189b1fad65c146.png" alt="img"> 前提引入规则<br>⑤ <img src="https://p.ananas.chaoxing.com/star3/origin/7012edd03dbd7138c7b0074afe8307e4.png" alt="img"> ④置换规则<br>⑥ <img src="https://p.ananas.chaoxing.com/star3/origin/44ed1296a7bb8b27b73cd59a77744165.png" alt="img"> ③⑤析取三段论规则<br>⑦ <img src="https://p.ananas.chaoxing.com/star3/origin/db0bfb2375b293e97be0c4110dadeda2.png" alt="img"> 前提引入规则<br>⑧ <img src="https://p.ananas.chaoxing.com/star3/origin/f80b7f525f6996dd21f5d7f750982e1a.png" alt="img"> ⑥⑦析取三段论规则<br>}</li>
+</ul>
+<p><strong>附加前提引入</strong></p>
+<ul>
+<li>前提: <img src="https://p.ananas.chaoxing.com/star3/origin/b8c21f576448b5abd9bb2e829eae968b.png" alt="img">,<img src="https://p.ananas.chaoxing.com/star3/origin/0af7227a30647892b302a5fb5310053e.png" alt="img">,<img src="https://p.ananas.chaoxing.com/star3/origin/cc448ff62dfd03d4ad6a86d8ef165edd.png" alt="img"><br>结论: <img src="https://p.ananas.chaoxing.com/star3/origin/01a4bddf1cf916ab91d24dc551258c69.png" alt="img"><br>证明:<br>① <img src="https://p.ananas.chaoxing.com/star3/origin/68202528b3c1335676e76f4033fe7e33.png" alt="img"> (  )规则<br>② <img src="https://p.ananas.chaoxing.com/star3/origin/8d13144b7d7fb7264ab17528a59786e9.png" alt="img"> ①双重否定律<br>③ <img src="https://p.ananas.chaoxing.com/star3/origin/0af7227a30647892b302a5fb5310053e.png" alt="img"> 前提引入规则<br>④ <img src="https://p.ananas.chaoxing.com/star3/origin/3fef6f2faeb4aad115af928870aed83b.png" alt="img"> ②③假言推理规则<br>⑤ <img src="https://p.ananas.chaoxing.com/star3/origin/b8c21f576448b5abd9bb2e829eae968b.png" alt="img"> 前提引入规则<br>⑥ <img src="https://p.ananas.chaoxing.com/star3/origin/59e4dc55ad5d71e64197f1f7d5bca06e.png" alt="img"> ④⑤析取三段论规则<br>⑦ <img src="https://p.ananas.chaoxing.com/star3/origin/6147474fbb0e9ac860d6c1491a399d1a.png" alt="img"> 前提引入规则<br>⑧ <img src="https://p.ananas.chaoxing.com/star3/origin/ec4313a231ba3b93c51c0c8d5f4f6b58.png" alt="img"> ⑦化简规则<br>⑨ <img src="https://p.ananas.chaoxing.com/star3/origin/4c9180775cf79d8cf4528d464c2ec1fb.png" alt="img"> ⑥⑧合取引入规则<br>}</li>
+</ul>
+<p><strong>结论的否定引入</strong></p>
+<ul>
+<li>前提: <img src="https://p.ananas.chaoxing.com/star3/origin/cc2396502ef3e086fd7c29984748c68e.png" alt="img"><br>结论: <img src="https://p.ananas.chaoxing.com/star3/origin/3fef6f2faeb4aad115af928870aed83b.png" alt="img"><br>证明:<br>① <img src="https://p.ananas.chaoxing.com/star3/origin/f25b7cc4d9ed64e2348ffd10352c17ba.png" alt="img"> 前提引入规则<br>② <img src="https://p.ananas.chaoxing.com/star3/origin/d472f52ca338d492064a19428fe25a85.png" alt="img"> 前提引入规则<br>③ <img src="https://p.ananas.chaoxing.com/star3/origin/59e4dc55ad5d71e64197f1f7d5bca06e.png" alt="img"> ①②拒取式规则<br>④ <img src="https://p.ananas.chaoxing.com/star3/origin/477a383dadde2597eb375211dc19cc3a.png" alt="img"> 前提引入规则<br>⑤ <img src="https://p.ananas.chaoxing.com/star3/origin/19f93da06c1930963623dbb8fbf3b810.png" alt="img"> ③④拒取式规则<br>⑥ <img src="https://p.ananas.chaoxing.com/star3/origin/0dfe303ae95268698c239248cccd9886.png" alt="img"> ⑤置换规则<br>⑦ <img src="https://p.ananas.chaoxing.com/star3/origin/3fef6f2faeb4aad115af928870aed83b.png" alt="img"> ⑥( ____ )规则<br>} </li>
+</ul>
+<p><strong>化简</strong></p>
+<ul>
+<li>前提: <img src="https://p.ananas.chaoxing.com/star3/origin/09385925f2c30b09d37964b62c022826.png" alt="img">,<img src="https://p.ananas.chaoxing.com/star3/origin/994b19ca20d7e441c21d9afe0a9973da.png" alt="img">,<img src="https://p.ananas.chaoxing.com/star3/origin/b84e02380afc76d9bdb597ac00d45340.png" alt="img"><br>结论: <img src="https://p.ananas.chaoxing.com/star3/origin/cd2684abb053c20b12d4551abe6421f5.png" alt="img"><br>证明:<br>① <img src="https://p.ananas.chaoxing.com/star3/origin/994b19ca20d7e441c21d9afe0a9973da.png" alt="img"> 前提引入规则<br>① <img src="https://p.ananas.chaoxing.com/star3/origin/a7c1cd23ec2078896b92c2177bd390a0.png" alt="img"> 附加前提引入<br>② <img src="https://p.ananas.chaoxing.com/star3/origin/5410777f55b2b03f85fd75fd60a91151.png" alt="img"> ①②析取三段论规则<br>③ <img src="https://p.ananas.chaoxing.com/star3/origin/09385925f2c30b09d37964b62c022826.png" alt="img"> 前提引入规则<br>④ <img src="https://p.ananas.chaoxing.com/star3/origin/71e01da90320eefba0e271075a2f18e9.png" alt="img"> ③④( ____ )规则<br>⑤ <img src="https://p.ananas.chaoxing.com/star3/origin/b84e02380afc76d9bdb597ac00d45340.png" alt="img"> 前提引入规则<br>⑥ <img src="https://p.ananas.chaoxing.com/star3/origin/ec4313a231ba3b93c51c0c8d5f4f6b58.png" alt="img"> ⑤⑥假言推理规则<br>}</li>
+</ul>
+<p><strong>假言推理</strong></p>
+<ul>
+<li>前提:¬ p˅(q→r),¬ q˅s,¬ p→¬ s<br>结论:¬ q˅r<br>证明:用附加前提法证明。<br>根据“蕴涵-析取等值式”,¬ q˅r ó q→r ,往证结论q→r 。<br>① q 附加前提引入<br>② ¬ q˅s 前提引入规则<br>③ s ①②( ____ )规则<br>④ ¬ p→¬ s 前提引入规则<br>⑤ p ③④拒取式规则<br>⑥ ¬ p˅(q→r) 前提引入规则<br>⑦ q→r ⑤⑥析取三段论规则<br>⑧ r ①⑦假言推理规则<br>由附加前提证明法知,题中所给推理得证。<br>}</li>
+</ul>
+<p><strong>析取三段论</strong></p>
+<h2 id="第三章–谓词逻辑"><a href="#第三章–谓词逻辑" class="headerlink" title="第三章–谓词逻辑"></a>第三章–谓词逻辑</h2><h3 id="谓词公式符号化"><a href="#谓词公式符号化" class="headerlink" title="谓词公式符号化"></a>谓词公式符号化</h3><ul>
+<li><strong>谓词，个体词，量词</strong></li>
+<li><strong>注意全称量词和存在量词都可以用来表示一个谓词命题</strong></li>
+</ul>
+<p>设A(x):x是人,B(x):x犯错误,命题”没有不犯错误的人”符号化为( )。</p>
+<p><strong>¬<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/9815" alt="img">x(A(x)∧¬ B(x))</strong></p>
+<p>设个体域为全总个体域,则可以将”所有的整数都是实数”表示为下面哪个谓词公式( )。 其中:设P(x):x是整数; R(x):x是实数</p>
+<ul>
+<li><p>A、</p>
+<p><img src="https://mooc1-1.chaoxing.com/ananas/latex/p/9815" alt="img">x(P(x) →R(x))</p>
+</li>
+<li><p>B、</p>
+<p><img src="https://mooc1-1.chaoxing.com/ananas/latex/p/9815" alt="img">x(P(x)∧R(x))</p>
+</li>
+<li><p>C、</p>
+<p><img src="https://mooc1-1.chaoxing.com/ananas/latex/p/952" alt="img">x(P(x) →R(x))</p>
+</li>
+<li><p>D、</p>
+<p><img src="https://mooc1-1.chaoxing.com/ananas/latex/p/952" alt="img">x(P(x)∧R(x))</p>
+</li>
+</ul>
+<p><strong>正确答案： C</strong> </p>
+<p>令F(x):x是汽车,G(y):y是火车,H(x,y):x比y慢。则语句”某些汽车比所有的火车慢”可表示为( )。</p>
+<ul>
+<li><p>A、</p>
+<p><img src="https://mooc1-1.chaoxing.com/ananas/latex/p/9815" alt="img">x(F(x) →<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/952" alt="img">y(G(y)∧H(x,y)))</p>
+</li>
+<li><p>B、</p>
+<p><img src="https://mooc1-1.chaoxing.com/ananas/latex/p/9815" alt="img">x(F(x)∧<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/952" alt="img">y(G(y) →H(x,y)))</p>
+</li>
+<li><p>C、</p>
+<p><img src="https://mooc1-1.chaoxing.com/ananas/latex/p/952" alt="img">x<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/9815" alt="img">y(F(x) →(G(y)∧H(x,y)))</p>
+</li>
+<li><p>D、</p>
+<p><img src="https://mooc1-1.chaoxing.com/ananas/latex/p/952" alt="img">x(F(x) →<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/952" alt="img">y(G(y) →H(x,y)))</p>
+</li>
+</ul>
+<p><strong>答案： B</strong> </p>
+<p>令F(x):x是汽车,G(y):y是火车,H(x,y):x比y慢。则语句”某些汽车比所有的火车慢,这句话是不对的”可表示为( )。</p>
+<ul>
+<li><p>A、</p>
+<p>¬<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/9815" alt="img">x(F(x) →<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/952" alt="img">y(G(y)∧H(x,y)))</p>
+</li>
+<li><p>B、</p>
+<p> ¬<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/9815" alt="img">x(F(x)∧<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/952" alt="img">y(G(y) →H(x,y)))</p>
+</li>
+<li><p>C、</p>
+<p>¬<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/952" alt="img">x<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/9815" alt="img">y(F(x) →(G(y)∧H(x,y)))</p>
+</li>
+<li><p>D、</p>
+<p>¬<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/952" alt="img">x(F(x) →<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/952" alt="img">y(G(y) →H(x,y)))</p>
+</li>
+</ul>
+<p><strong>答案： B</strong> </p>
+<h3 id="谓词公式等价于"><a href="#谓词公式等价于" class="headerlink" title="谓词公式等价于"></a>谓词公式等价于</h3><p><strong>就是蕴含式啥啥的变一变，或者就是辖域的收缩之类的</strong></p>
+<p>设B是不含变元x的公式,谓词公式  <img src="https://mooc1-1.chaoxing.com/ananas/latex/p/952" alt="img">x(B→A(x))等价于( )。</p>
+<ul>
+<li><p>A、</p>
+<p><img src="https://mooc1-1.chaoxing.com/ananas/latex/p/9815" alt="img">xA(x)→B</p>
+</li>
+<li><p>B、</p>
+<p>B→<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/9815" alt="img">xA(x)</p>
+</li>
+<li><p>C、</p>
+<p>B→<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/952" alt="img">xA(x)</p>
+</li>
+<li><p>D、</p>
+<p><img src="https://mooc1-1.chaoxing.com/ananas/latex/p/952" alt="img">xA(x)→B</p>
+</li>
+</ul>
+<p><strong>答案： C</strong> </p>
+<p>设B是不含变元x的公式,谓词公式  <img src="https://mooc1-1.chaoxing.com/ananas/latex/p/9815" alt="img">x(B ∧A(x))等价于( )。</p>
+<ul>
+<li><p>A、</p>
+<p><img src="https://mooc1-1.chaoxing.com/ananas/latex/p/9815" alt="img">xA(x)∨B</p>
+</li>
+<li><p>B、</p>
+<p>B∧<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/9815" alt="img">xA(x)</p>
+</li>
+<li><p>C、</p>
+<p>B∧<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/952" alt="img">xA(x)</p>
+</li>
+<li><p>D、</p>
+<p><img src="https://mooc1-1.chaoxing.com/ananas/latex/p/9815" alt="img">xA(x)∨<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/9815" alt="img">xB</p>
+</li>
+</ul>
+<p>答案： B </p>
+<h3 id="判断是否是闭公式"><a href="#判断是否是闭公式" class="headerlink" title="判断是否是闭公式"></a>判断是否是闭公式</h3><p><strong>一个谓词公式中没有自由变元</strong></p>
+<p>下面哪个谓词公式不是闭公式( )。</p>
+<ul>
+<li><p>A、</p>
+<p><img src="https://mooc1-1.chaoxing.com/ananas/latex/p/9815" alt="img">y<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/952" alt="img">x(G(x,y) →<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/952" alt="img">zH(x,y,z))∧<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/9815" alt="img">xM(x)</p>
+</li>
+<li><p>B、</p>
+<p><img src="https://mooc1-1.chaoxing.com/ananas/latex/p/952" alt="img">x<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/952" alt="img">y(R(x,y) →<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/9815" alt="img">zL(y,z))∧<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/9815" alt="img">xH(x)</p>
+</li>
+<li><p>C、</p>
+<p><img src="https://mooc1-1.chaoxing.com/ananas/latex/p/952" alt="img">x(F(x)∧ <img src="https://mooc1-1.chaoxing.com/ananas/latex/p/9815" alt="img">yG(x,y)) →<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/952" alt="img">x<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/9815" alt="img">zM(x,z))</p>
+</li>
+<li><p>D、</p>
+<p><img src="https://mooc1-1.chaoxing.com/ananas/latex/p/952" alt="img">x<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/952" alt="img">yR(x,y)→<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/9815" alt="img">zL(y,z)∧ <img src="https://mooc1-1.chaoxing.com/ananas/latex/p/9815" alt="img">x<img src="https://mooc1-1.chaoxing.com/ananas/latex/p/9815" alt="img">yH(x,y)</p>
+</li>
+</ul>
+<h3 id="判断变元性质"><a href="#判断变元性质" class="headerlink" title="判断变元性质"></a>判断变元性质</h3><p>约束变元/自由变元 </p>
+<p>约束只约束一个括号</p>
+<h3 id="判断辖域"><a href="#判断辖域" class="headerlink" title="判断辖域"></a>判断辖域</h3><p>就是看括号，有手就行</p>
+<h3 id="变元换名规则"><a href="#变元换名规则" class="headerlink" title="变元换名规则"></a>变元换名规则</h3><p><strong>选择题就找一行里面有没有一样的变元，有手就行</strong></p>
+<p>已知公式<img src="https://p.ananas.chaoxing.com/star3/origin/006c899164910fb4645e8977d540cac7.png" alt="img">,用换名规则对公式的变元进行换名,以下选项错误的是( )。</p>
+<ul>
+<li><em>A、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/eaa720b8d01c18a1ac14a4e0c1ba1d4c.png" alt="img"></a></li>
+<li><em>B、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/1e881048ecf222288f3886de2c0989b0.png" alt="img"></a></li>
+<li><em>C、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/1524e6e261d0e7f7917bd1f1328b3d66.png" alt="img"></a></li>
+<li><em>D、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/c233026254c5a21e969feff368c97842.png" alt="img"></a></li>
+</ul>
+<p>答案： D </p>
+<h3 id="判断公式性质"><a href="#判断公式性质" class="headerlink" title="判断公式性质"></a>判断公式性质</h3><ul>
+<li>永真式</li>
+<li>永假式</li>
+<li>可满足式</li>
+</ul>
+<p>一般就是看自然规律，然后根据代换实例去做</p>
+<p>p56页</p>
+<h3 id="公式中等值的有哪些"><a href="#公式中等值的有哪些" class="headerlink" title="公式中等值的有哪些"></a>公式中等值的有哪些</h3><p><strong>若 A &lt; — &gt; B是永真式，则说明AB等值</strong></p>
+<ul>
+<li><p><strong>命题逻辑中的等值式代换过来</strong></p>
+</li>
+<li><p><strong>量词的否定转换</strong></p>
+</li>
+<li><p><strong>量词辖域的扩张/收缩</strong></p>
+</li>
+<li><p><strong>量词分配率</strong></p>
+</li>
+<li><p><strong>量词顺序交换</strong></p>
+<p><strong>全称量词和存在量词二者间顺序不可随意交换</strong></p>
+</li>
+</ul>
+<p>下列公式中等值的有哪些?</p>
+<ul>
+<li><em>A、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/df33973db08f068ca040e7fc90cef0c3.png" alt="img"></a></li>
+<li><em>B、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/b022bd18291ef46586879e572fb2a42b.png" alt="img"></a></li>
+<li><em>C、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/74baff8949bc015ce19b76e424443914.png" alt="img"></a></li>
+<li><em>D、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/5f0ad68fc201c59fb49a1f6461ed5372.png" alt="img"></a></li>
+<li><em>E、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/8d4ffbba21d3a5a876ee3b9d756120b1.png" alt="img"></a></li>
+</ul>
+<p>正确答案： ABC </p>
+<p>下列公式中等值的有哪些?</p>
+<ul>
+<li><em>A、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/5f0ad68fc201c59fb49a1f6461ed5372.png" alt="img"></a></li>
+<li><em>B、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/d32d5a4a3c33eacdf4c25c0f84eceb9f.png" alt="img"></a></li>
+<li><em>C、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/bf07f041a5e5364192e5997a43adb0c0.png" alt="img"></a></li>
+<li><em>D、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/e49536b57b7d20118622124c8c668a25.png" alt="img"></a></li>
+<li><em>E、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/5c71b1ca9be866ad7feb23130871a64c.png" alt="img"></a></li>
+</ul>
+<p>正确答案： CDE</p>
+<h3 id="给你谓词公式让你写真值"><a href="#给你谓词公式让你写真值" class="headerlink" title="给你谓词公式让你写真值"></a>给你谓词公式让你写真值</h3><ul>
+<li><p>给定解释<img src="https://p.ananas.chaoxing.com/star3/origin/3b05bf18dc7113b18466949a52251ee6.png" alt="img">如下:<br>(1) 个体域<img src="https://p.ananas.chaoxing.com/star3/origin/232d33e874adc18307f034cee1462496.png" alt="img">是全世界的人构成的集合;<br>(2) <img src="https://p.ananas.chaoxing.com/star3/origin/1d54bdfeb8074d2f8558e563510dd42a.png" alt="img">表示:<img src="https://p.ananas.chaoxing.com/star3/origin/0bfba6d0b92ccba7812bcd80005d420a.png" alt="img">在美国加州大学读书.<br><img src="https://p.ananas.chaoxing.com/star3/origin/b1336175178b6e352372bab2f85c728e.png" alt="img">表示:<img src="https://p.ananas.chaoxing.com/star3/origin/0bfba6d0b92ccba7812bcd80005d420a.png" alt="img">与 <img src="https://p.ananas.chaoxing.com/star3/origin/82fe8b464f5d773c5e5e2ad6fe2dbd91.png" alt="img">是校友(同一个学校);<br>(3) <img src="https://p.ananas.chaoxing.com/star3/origin/e65ce539506ca980219b3ffcc51da2fc.png" alt="img">表示:徐范明;<img src="https://p.ananas.chaoxing.com/star3/origin/9b27ccfb92382ffe704b456dd997749e.png" alt="img">表示:珍妮;<br>下面的公式在解释<img src="https://p.ananas.chaoxing.com/star3/origin/3b05bf18dc7113b18466949a52251ee6.png" alt="img">下的自然语言具体含义对应的真值为(以客观事实为依据进行判断).<br><img src="https://p.ananas.chaoxing.com/star3/origin/de2f4c506ec5596ea5a1ea89188eac43.png" alt="img"></p>
+<p><strong>答案： 1 / 真</strong></p>
+</li>
+<li><p>给定解释<img src="https://p.ananas.chaoxing.com/star3/origin/3b05bf18dc7113b18466949a52251ee6.png" alt="img">如下:<br>(1) 个体域<img src="https://p.ananas.chaoxing.com/star3/origin/232d33e874adc18307f034cee1462496.png" alt="img">是全世界的人构成的集合;<br>(2) <img src="https://p.ananas.chaoxing.com/star3/origin/385f38df73873537c35c40137d550f8f.png" alt="img">表示:<img src="https://p.ananas.chaoxing.com/star3/origin/0bfba6d0b92ccba7812bcd80005d420a.png" alt="img">住在北京;<br><img src="https://p.ananas.chaoxing.com/star3/origin/b1336175178b6e352372bab2f85c728e.png" alt="img">表示:<img src="https://p.ananas.chaoxing.com/star3/origin/0bfba6d0b92ccba7812bcd80005d420a.png" alt="img">与 <img src="https://p.ananas.chaoxing.com/star3/origin/82fe8b464f5d773c5e5e2ad6fe2dbd91.png" alt="img">是邻居;<br>下面的公式在解释<img src="https://p.ananas.chaoxing.com/star3/origin/3b05bf18dc7113b18466949a52251ee6.png" alt="img">下的自然语言具体含义对应的真值为____(以客观事实为依据进行判断).<br><img src="https://p.ananas.chaoxing.com/star3/origin/b5dc4fadd318ab06e75a922d7a6025b1.png" alt="img"><br>}</p>
+<p><strong>答案：  1 / 真</strong></p>
+</li>
+</ul>
+<blockquote>
+<p>TODO</p>
+</blockquote>
+<ul>
+<li><p>设某解释T为:个体域为D={-2,0,2},<br>谓词F(x):x≤-1,G(x):x&gt;5,R(x):x≤2。根据解释T</p>
+<p>公式<img src="https://p.ananas.chaoxing.com/star3/origin/6ffa037bacf5c0c004285fe5e7bdf61e.png" alt="img">的真值为</p>
+<p><strong>答案： 0 / 假</strong></p>
+</li>
+<li><p>设某解释T为:个体域为D={-5,3,7},<br>谓词F(x):x≤3,G(x):x&gt;5,R(x):x≤7 根据解释T</p>
+<p>公式<img src="https://p.ananas.chaoxing.com/star3/origin/380b7fcbd89779581144cad2749dd50b.png" alt="img">的真值为</p>
+<p><strong>答案： 1</strong></p>
+</li>
+</ul>
+<h3 id="前束范式"><a href="#前束范式" class="headerlink" title="前束范式"></a>前束范式</h3><blockquote>
+<p>满足三点</p>
+<ol>
+<li>歧义变元换名</li>
+<li>否定联结词放量词后边</li>
+<li>量词移到公式最左边</li>
+</ol>
+</blockquote>
+<ul>
+<li><p>谓词公式的<img src="https://p.ananas.chaoxing.com/star3/origin/74bf0f84c45f75b37ac54735b8c09f1d.png" alt="img">前束范式是<img src="https://p.ananas.chaoxing.com/star3/origin/ca3ab80deaac376dce024db785daa308.png" alt="img"></p>
+<p>答案：<em>×</em> </p>
+</li>
+<li><p>谓词公式<img src="https://p.ananas.chaoxing.com/star3/origin/8f098982d915b27a950f8bbf031cd43b.png" alt="img">的前束范式是<img src="https://p.ananas.chaoxing.com/star3/origin/0be3065decccb67374fe59cb79a4e5bf.png" alt="img"></p>
+<p>答案：<em>×</em> </p>
+</li>
+<li><p>公式<img src="https://p.ananas.chaoxing.com/star3/origin/2591291258b6e21b8b4924b9f67d852f.png" alt="img">的前束范式是<img src="https://p.ananas.chaoxing.com/star3/origin/a833e326375c00d2b7e2f4a0dbcf8344.png" alt="img"><br>答案：<em>√</em> </p>
+</li>
+</ul>
+<h3 id="通过个体域消除量词"><a href="#通过个体域消除量词" class="headerlink" title="通过个体域消除量词"></a>通过个体域消除量词</h3><blockquote>
+<p>存在–》V</p>
+<p>全部–》^</p>
+</blockquote>
+<ul>
+<li><p><img src="https://p.ananas.chaoxing.com/star3/origin/7deff2bea8736576d90aff41b9292460.jpg" alt="img"></p>
+<p>答案：<em>√</em> </p>
+</li>
+</ul>
+<ul>
+<li><p><img src="https://p.ananas.chaoxing.com/star3/origin/164dfe562a33b4c3f423922f0388f6ec.jpg" alt="img"></p>
+<p>答案：<em>√</em> </p>
+</li>
+<li><p>设个体域是{a,b,c,d},消去公式中的量词,<img src="https://p.ananas.chaoxing.com/star3/origin/86f84aa0d8c93712679ee8a715302ca0.jpg" alt="img">}</p>
+<p>答案：<em>×</em> </p>
+</li>
+<li><p>设个体域是{1,3,7,2},消去公式中的量词,<img src="https://p.ananas.chaoxing.com/star3/origin/ebd509b296b68422afb186bec52d0af2.jpg" alt="img">}</p>
+<p>答案：<em>×</em> </p>
+</li>
+</ul>
+<h3 id="谓词逻辑推理判断题"><a href="#谓词逻辑推理判断题" class="headerlink" title="谓词逻辑推理判断题"></a>谓词逻辑推理判断题</h3><blockquote>
+<p>**全称量词/存在存在量词 **</p>
+<p><strong>引入/消去</strong></p>
+</blockquote>
+<ul>
+<li><p>在谓词逻辑推理中,<img src="https://p.ananas.chaoxing.com/star3/origin/7dba059079363a7335701326ebb2111a.png" alt="img">使用的规则英文缩写是____规则.</p>
+<p><strong>EG;存在量词引入</strong></p>
+</li>
+<li><p>在谓词逻辑推理中,<img src="https://p.ananas.chaoxing.com/star3/origin/aa539c5f6f34597daf706dd68e1ecba1.png" alt="img">或<img src="https://p.ananas.chaoxing.com/star3/origin/2df0d7ab3a86f5e23bd7db233e34c913.png" alt="img">使用的规则英文缩写为:____规则</p>
+<p> <strong>UI;全称量词消去</strong></p>
+</li>
+<li><p>在谓词逻辑推理中,<img src="https://p.ananas.chaoxing.com/star3/origin/db21f9a74dd88999d0e932b890c143b3.png" alt="img">使用的规则英文缩写为:____规则.</p>
+<p> <strong>UG;全称量词引入</strong></p>
+</li>
+<li><p>在谓词逻辑推理中,<img src="https://p.ananas.chaoxing.com/star3/origin/eafb53782af9d392f42a84d146bdc455.png" alt="img">使用的规则为____规则.</p>
+<p><strong>EI;存在量词消去</strong></p>
+</li>
+<li><p>在谓词逻辑推理中,<img src="https://p.ananas.chaoxing.com/star3/origin/417fe94ffd6e6fac8de8e5d463cbaa90.png" alt="img">使用的规则为____规则.</p>
+<p><strong>EG;存在量词引入</strong></p>
+</li>
+</ul>
+<h3 id="判断题"><a href="#判断题" class="headerlink" title="判断题"></a>判断题</h3><ul>
+<li><p>闭公式：谓词公式中没有自由变元，任何一个闭公式都可以表示一个命题，含自由变元的公式不能表示一个命题</p>
+</li>
+<li><p>重言式的所有代换实例都是永真式,矛盾式的所有代换实例都是矛盾式</p>
+</li>
+</ul>
+<h2 id="第四章–集合论"><a href="#第四章–集合论" class="headerlink" title="第四章–集合论"></a>第四章–集合论</h2><h3 id="确定子集个数"><a href="#确定子集个数" class="headerlink" title="确定子集个数"></a>确定子集个数</h3><p><strong>子集个数有2^n个，包含空集和自身</strong></p>
+<p>如果集合<img src="https://p.ananas.chaoxing.com/star3/origin/bfa7c796d60629d74a6b5221abb69d33.png" alt="img">,请确定<img src="https://p.ananas.chaoxing.com/star3/origin/d992a16fdfacf6524d0f5faa25869d0d.png" alt="img">的非空真子集的个数( ).</p>
+<p>正确答案： 62</p>
+<h3 id="具有几个元素的子集个数"><a href="#具有几个元素的子集个数" class="headerlink" title="具有几个元素的子集个数"></a>具有几个元素的子集个数</h3><p><strong>就是组合数公式</strong></p>
+<p>如果集合<img src="https://p.ananas.chaoxing.com/star3/origin/bfa7c796d60629d74a6b5221abb69d33.png" alt="img">,请确定具有4个元素的<img src="https://p.ananas.chaoxing.com/star3/origin/d992a16fdfacf6524d0f5faa25869d0d.png" alt="img">的子集个数( ).</p>
+<p>== C(3/6) = 15</p>
+<h3 id="对称差集合等关系运算"><a href="#对称差集合等关系运算" class="headerlink" title="对称差集合等关系运算"></a>对称差集合等关系运算</h3><p>设<img src="https://p.ananas.chaoxing.com/star3/origin/7dbf0f1337ddc0f49c305bcf0dfcf0ed.png" alt="img">,<img src="https://p.ananas.chaoxing.com/star3/origin/af512fc89fc058d619748ea8489371c9.png" alt="img">,则<img src="https://p.ananas.chaoxing.com/star3/origin/184e9b4ab7450a155486282c9954aebf.png" alt="img">( ).</p>
+<ul>
+<li><em>A、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/7db0a6c01c23d2e15ed14872b01d03df.png" alt="img"></a></li>
+</ul>
+<p>设<img src="https://p.ananas.chaoxing.com/star3/origin/3ac67225c39be8cb26a9906958d59994.png" alt="img">,<img src="https://p.ananas.chaoxing.com/star3/origin/8785c3afd9c8227679874597c6b784c9.png" alt="img">,<img src="https://p.ananas.chaoxing.com/star3/origin/906ae61ffade1d61d4c345e4b83c0f57.png" alt="img">,则<img src="https://p.ananas.chaoxing.com/star3/origin/4d3b828f3d832108c8fb80adace203e7.png" alt="img">( ).</p>
+<ul>
+<li><em>A、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/43934e0c4cf61372dc2b28a34571877e.png" alt="img"></a></li>
+</ul>
+<h3 id="集合的计数"><a href="#集合的计数" class="headerlink" title="集合的计数"></a>集合的计数</h3><blockquote>
+<p><strong>就是容斥原理和鸽笼原理</strong></p>
+</blockquote>
+<p>容斥原理</p>
+<p>设A,B是集合,已知<img src="https://p.ananas.chaoxing.com/star3/origin/ee2a85bf8d8b7bbbdfdf6f17c77ed790.png" alt="img">,<img src="https://p.ananas.chaoxing.com/star3/origin/ed73d04ca6a8b91520ea0cd1f773afd6.png" alt="img">,<img src="https://p.ananas.chaoxing.com/star3/origin/8f4f37c7ddc989758a7e2a7d89d21263.png" alt="img">,则<img src="https://p.ananas.chaoxing.com/star3/origin/fc3475a39a150cc8dd7fa9fe25e55113.png" alt="img">____.</p>
+<ul>
+<li>5+7-3=9</li>
+</ul>
+<p>设A,B是集合,已知<img src="https://p.ananas.chaoxing.com/star3/origin/a7e8659a6e878dd2fee84ca60d6c013c.png" alt="img">,<img src="https://p.ananas.chaoxing.com/star3/origin/a156e51e25347980081fd320b491b660.png" alt="img">,<img src="https://p.ananas.chaoxing.com/star3/origin/8f4f37c7ddc989758a7e2a7d89d21263.png" alt="img">,则<img src="https://p.ananas.chaoxing.com/star3/origin/d5f3f2c124bfad50d3b5e0b43fea7a82.png" alt="img">____.</p>
+<ul>
+<li><p>B有7个元素</p>
+<p>A并B=A+B-(A交B)</p>
+<p>==&gt; A交B=5</p>
+<p>==&gt;答案=A+B-2*（A交B)=  <strong>5</strong></p>
+</li>
+</ul>
+<h3 id="幂集"><a href="#幂集" class="headerlink" title="幂集"></a>幂集</h3><blockquote>
+<p><strong>就是子集个数</strong></p>
+<p><strong>一看有没有空集，二看个数对不对</strong></p>
+</blockquote>
+<h2 id="第五章–二元关系"><a href="#第五章–二元关系" class="headerlink" title="第五章–二元关系"></a>第五章–二元关系</h2><h3 id="求R关系矩阵"><a href="#求R关系矩阵" class="headerlink" title="求R关系矩阵"></a>求R关系矩阵</h3><blockquote>
+<p>A有n个元素，就是矩阵【n】【n】，根据R写1就行，其他都是0，有手就行</p>
+</blockquote>
+<p>设<img src="https://p.ananas.chaoxing.com/star3/origin/26b1d93d369a7b99aa35917232725618.png" alt="img">是<img src="https://p.ananas.chaoxing.com/star3/origin/ac912bf1287edfe2bcccfa560851e638.png" alt="img">上的二元关系,则R的关系矩阵MR是</p>
+<ul>
+<li><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/4cd546a3593b7c4f644b87d82857e2ae.png" alt="img"></a></li>
+</ul>
+<h3 id="求R的关系图"><a href="#求R的关系图" class="headerlink" title="求R的关系图"></a>求R的关系图</h3><blockquote>
+<p><strong>A几个元素画几个点，根据R连线就完事了，有手就行</strong></p>
+</blockquote>
+<p>设<img src="https://p.ananas.chaoxing.com/star3/origin/38dcaa5b7d4fab4d1f83fa2b63fe7235.png" alt="img">是<img src="https://p.ananas.chaoxing.com/star3/origin/b9fc12bbc9797ddf0413f65c8dfe8093.png" alt="img">上的二元关系,则<img src="https://p.ananas.chaoxing.com/star3/origin/5bd8f88ef727cdd037264af3e30c308a.png" alt="img">的关系图是</p>
+<ul>
+<li><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/57300fd3f63874b71dada5267bbe6af5.png" alt="img"></a></li>
+</ul>
+<h3 id="求domR和ranR"><a href="#求domR和ranR" class="headerlink" title="求domR和ranR"></a>求domR和ranR</h3><blockquote>
+<p>domR—-R中第一元素对应的集合</p>
+<p>ranR—-R中第二元素的集合</p>
+<p>注意，集合中没有重复元素昂</p>
+<p>fldR是domR和ranR的并集</p>
+</blockquote>
+<blockquote>
+<p>**MOD是数论中重要的概念–同余<br><strong>用法及意义是：a≡b(mod c) 的意思是</strong></p>
+<p><strong>a-b能被c整除，则a,b同余</strong></p>
+</blockquote>
+<p>设<img src="https://p.ananas.chaoxing.com/star3/origin/02413797336e483f3834c53b82f8e349.png" alt="img">是<img src="https://p.ananas.chaoxing.com/star3/origin/51ba3bc79fa2420332e08f3dabace2c9.png" alt="img">上的关系,则下列说法正确的是</p>
+<ul>
+<li><em>A、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/82b1ef382ee326c4e18eeb29eabc0f9e.png" alt="img"></a></li>
+<li><em>B、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/8694a1c11e812e6ec0da3f4bd077c8a9.png" alt="img"></a></li>
+<li><em>C、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/707593b42fda86986f2cd808f74d9576.png" alt="img"></a></li>
+<li><em>D、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/847b88ad00caaad661b735ab884b922a.png" alt="img"></a></li>
+</ul>
+<p>正确答案： C </p>
+<h3 id="求R的闭包"><a href="#求R的闭包" class="headerlink" title="求R的闭包"></a>求R的闭包</h3><blockquote>
+<p>Ia = {&lt;a,a&gt;,&lt;b,b&gt;,&lt;c,c&gt;}</p>
+<p>R的逆等于什么？</p>
+<p>传递就是找复合关系添加进去</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/07/02/DAolUOrEcYLfBiS.png" alt="image-20210702174556690"></p>
+<h4 id="求R的对称闭包—U-R-1"><a href="#求R的对称闭包—U-R-1" class="headerlink" title="求R的对称闭包—U R^-1"></a>求R的对称闭包—U R^-1</h4><p>设<img src="https://p.ananas.chaoxing.com/star3/origin/a50b434575a238b97de9a7e621a8c6be.png" alt="img">是 <img src="https://p.ananas.chaoxing.com/star3/origin/d79f8b0d9875ddcd6d432ba816d1b3dc.png" alt="img">上的二元关系,则R的对称闭包等于</p>
+<ul>
+<li><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/602357e013376507533b7615a077b16e.png" alt="img"></a></li>
+</ul>
+<h4 id="求R的自反闭包–U-Ia"><a href="#求R的自反闭包–U-Ia" class="headerlink" title="求R的自反闭包–U  Ia"></a>求R的自反闭包–U  Ia</h4><p>设<img src="https://p.ananas.chaoxing.com/star3/origin/f36afcf44acd6e6bcf232c75f8f300af.png" alt="img">是<img src="https://p.ananas.chaoxing.com/star3/origin/6b5e55858e57824d1503907edb5b72d9.png" alt="img">上的二元关系,则R的自反闭包等于</p>
+<ul>
+<li><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/ceb2f6c15267b767d1c4aaaa0cffc034.png" alt="img"></a></li>
+</ul>
+<h4 id="求R的传递闭包—首尾相接可以去掉"><a href="#求R的传递闭包—首尾相接可以去掉" class="headerlink" title="求R的传递闭包—首尾相接可以去掉"></a>求R的传递闭包—首尾相接可以去掉</h4><p>离散P85</p>
+<p>设<img src="https://p.ananas.chaoxing.com/star3/origin/578aa3edae797cf0f76c29ac33bf7b9e.png" alt="img">是 <img src="https://p.ananas.chaoxing.com/star3/origin/346ae5db3713adaa82a09d6fc994778f.png" alt="img">上的二元关系,则R的传递闭包等于</p>
+<ul>
+<li><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/2382ecd5336e219b5cde1c008f126170.png" alt="img"></a></li>
+</ul>
+<h3 id="集合划分对应的等价关系"><a href="#集合划分对应的等价关系" class="headerlink" title="集合划分对应的等价关系"></a>集合划分对应的等价关系</h3><blockquote>
+<p><img src="https://i.loli.net/2021/07/02/Vx2vQoZIcyHED8q.png" alt="image-20210702180418372"></p>
+</blockquote>
+<p>设集合 A 的一个划分为<img src="https://p.ananas.chaoxing.com/star3/origin/de5a404dd4cc2b270a79780e6160ea56.png" alt="img">,该划分对应的等价关系 R为</p>
+<ul>
+<li><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/a40bcdb2c7bad0ffababdb1d90792181.png" alt="img"></a></li>
+</ul>
+<p>设集合A的一个划分为<img src="https://p.ananas.chaoxing.com/star3/origin/bcd93e0c8a587859d9d3bab0ca28c154.png" alt="img">,该划分对应的等价关系R为</p>
+<ul>
+<li><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/062a9c249b5707e2073729deb2a8a8e5.png" alt="img"></a></li>
+</ul>
+<h3 id="由R导出A的划分"><a href="#由R导出A的划分" class="headerlink" title="由R导出A的划分"></a>由R导出A的划分</h3><p>设<img src="https://p.ananas.chaoxing.com/star3/origin/15b3d06a53dd2e077afc49e9842f60d4.png" alt="img">是<img src="https://p.ananas.chaoxing.com/star3/origin/182cc713c2c109744ea007ed9464ba36.png" alt="img">上的等价关系,则由R导出的A的划分是</p>
+<ul>
+<li><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/d04477694f16da53d626c2edad8a31d8.png" alt="img"></a></li>
+</ul>
+<p>设<img src="https://p.ananas.chaoxing.com/star3/origin/30e4337ff6aa57608af691ee6a97c489.png" alt="img">是<img src="https://p.ananas.chaoxing.com/star3/origin/182cc713c2c109744ea007ed9464ba36.png" alt="img">上的等价关系,则由R导出的A的划分是</p>
+<ul>
+<li><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/cb1c97163ec32569294551f5ce0bb632.png" alt="img"></a></li>
+</ul>
+<h3 id="R具有什么性质"><a href="#R具有什么性质" class="headerlink" title="R具有什么性质"></a>R具有什么性质</h3><p>设<img src="https://p.ananas.chaoxing.com/star3/origin/e85f7815dc123de7c6b210412e96cd77.png" alt="img">是<img src="https://p.ananas.chaoxing.com/star3/origin/91f6df548afc982f449fc4654a11eeb6.png" alt="img">上的二元关系,则R具有</p>
+<p>&lt;2,4&gt;,&lt;4,2&gt;</p>
+<ul>
+<li><p><em>A、</em><a href="javascript:void(0)">自反性</a> </p>
+</li>
+<li><p><em>B、</em><a href="javascript:void(0)">反自反性</a></p>
+</li>
+<li><p><em>C、</em><a href="javascript:void(0)">对称性</a></p>
+</li>
+<li><p><em>D、</em><a href="javascript:void(0)">反对称性</a></p>
+</li>
+<li><p><em>E、</em><a href="">传递性 </a></p>
+<p><strong>正确答案： C</strong> </p>
+</li>
+</ul>
+<p>设<img src="https://p.ananas.chaoxing.com/star3/origin/7f76c92cf3ae9880f6abefec77aab044.png" alt="img">是 <img src="https://p.ananas.chaoxing.com/star3/origin/91f6df548afc982f449fc4654a11eeb6.png" alt="img">上的二元关系,则R具有</p>
+<p>&lt;2,1&gt;,&lt;3,1&gt;,&lt;4,1&gt;,&lt;4,2&gt;</p>
+<ul>
+<li><p><em>A、</em><a href="javascript:void(0)">自反性</a></p>
+</li>
+<li><p><em>B、</em><a href="javascript:void(0)">反自反性</a></p>
+</li>
+<li><p><em>C、</em><a href="javascript:void(0)">对称性</a></p>
+</li>
+<li><p><em>D、</em><a href="javascript:void(0)">反对称性</a></p>
+</li>
+<li><p><em>E、</em><a href="javascript:void(0)">传递性</a></p>
+<p><strong>正确答案： ADE</strong></p>
+</li>
+</ul>
+<h3 id="哈斯图–极大元，极小元"><a href="#哈斯图–极大元，极小元" class="headerlink" title="哈斯图–极大元，极小元"></a>哈斯图–极大元，极小元</h3><blockquote>
+<p>极大元就是最顶层，包括单独的</p>
+<p>极小就是最底层的，并列</p>
+<p>最小就是最底层，并且没有并列，最大同理</p>
+</blockquote>
+<p>设&lt;A,R&gt;是偏序集,R的哈斯图如图所示,下面哪个描述是正确的<br><img src="https://p.ananas.chaoxing.com/star3/origin/39ab918920ecb3f73a90b69cc71ca093.jpg" alt="img"></p>
+<ul>
+<li><em>A、</em><a href="javascript:void(0)">A的极大元为1,2</a></li>
+<li><em>B、</em><a href="javascript:void(0)">A的极小元为4</a></li>
+<li><em>C、</em><a href="javascript:void(0)">A的最大元为1,2</a></li>
+<li><em>D、</em><a href="javascript:void(0)">A的最小元为4</a></li>
+</ul>
+<p>正确答案： ABD </p>
+<h3 id="A-gt-互不相同二元关系个数"><a href="#A-gt-互不相同二元关系个数" class="headerlink" title="A-&gt;互不相同二元关系个数"></a>A-&gt;互不相同二元关系个数</h3><p>设A,B是集合,且|A|=1,|B|=3,则A到B互不相同的二元关系个数为____。</p>
+<p>8</p>
+<p>设A,B是集合,且|A|=6,|B|=1,则A到B互不相同的二元关系个数为____。</p>
+<p>64</p>
+<p>设A是集合,且|A|=3,则A上互不相同的二元关系个数为____。</p>
+<p>512</p>
+<h3 id="R↑A包含的元素个数"><a href="#R↑A包含的元素个数" class="headerlink" title="R↑A包含的元素个数"></a>R↑A包含的元素个数</h3><p>设<img src="https://p.ananas.chaoxing.com/star3/origin/69754fa8e5eb8f1a9b0b548983183536.png" alt="img">,<img src="https://p.ananas.chaoxing.com/star3/origin/c8664c54d3a0c4b9c1bb5924df154257.png" alt="img">,则R↑A包含的元素个数为____。</p>
+<p>4</p>
+<p>设<img src="https://p.ananas.chaoxing.com/star3/origin/1afb952a57cb174089db0da8415cedec.png" alt="img">,<img src="https://p.ananas.chaoxing.com/star3/origin/4874075058f9732119f9795cafd33c67.png" alt="img">,则R↑A包含的元素个数为____。</p>
+<p>3</p>
+<h3 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h3><p>设<img src="https://p.ananas.chaoxing.com/star3/origin/6303aa92ed6c3c92cb69dd94ae331b48.png" alt="img">,<img src="https://p.ananas.chaoxing.com/star3/origin/d0ee368d641d91b939d930ce8f0fdb07.png" alt="img">是<img src="https://p.ananas.chaoxing.com/star3/origin/30cf26f3ed91b1f13b2d9ca4c0df7b0c.png" alt="img">的划分。</p>
+<p>×</p>
+<p>设<img src="https://p.ananas.chaoxing.com/star3/origin/6303aa92ed6c3c92cb69dd94ae331b48.png" alt="img">, <img src="https://p.ananas.chaoxing.com/star3/origin/b5c68c2f7f049886af7c697840a8a5cc.png" alt="img">不是<img src="https://p.ananas.chaoxing.com/star3/origin/30cf26f3ed91b1f13b2d9ca4c0df7b0c.png" alt="img">的划分。</p>
+<p><em>√</em> </p>
+<h3 id="偏序图上下界"><a href="#偏序图上下界" class="headerlink" title="偏序图上下界"></a>偏序图上下界</h3><p>设&lt;A,R&gt;是偏序集,R的哈斯图如图所示,A的上界为a,c。<br><img src="https://p.ananas.chaoxing.com/star3/origin/0a5d0c37f39c819cebfea70c8dd3b876.jpg" alt="img"><br>}</p>
+<p>答案：<em>×</em> </p>
+<p>设&lt;A,R&gt;是偏序集,R的哈斯图如图所示,子集B={c,d,m,f},B的上界为a。<br><img src="https://p.ananas.chaoxing.com/star3/origin/69a6d9935de10226b4f3efff9d6b3cfd.jpg" alt="img"><br>}</p>
+<p>答案：<em>√</em> </p>
+<p>设&lt;A,R&gt;是偏序集,R的哈斯图如图所示,子集B={c,d,m,f},B的下界为f。<br><img src="https://p.ananas.chaoxing.com/star3/origin/69a6d9935de10226b4f3efff9d6b3cfd.jpg" alt="img"><br>}</p>
+<p>答案：<em>√</em> </p>
+<p>设&lt;A,R&gt;是偏序集,R的哈斯图如图所示,A没有下界。<br><img src="https://p.ananas.chaoxing.com/star3/origin/0a5d0c37f39c819cebfea70c8dd3b876.jpg" alt="img"><br>}</p>
+<p>答案：<em>√</em></p>
+<h2 id="第六章–图论"><a href="#第六章–图论" class="headerlink" title="第六章–图论"></a>第六章–图论</h2><h3 id="顶点个数"><a href="#顶点个数" class="headerlink" title="顶点个数"></a>顶点个数</h3><blockquote>
+<p><strong>顶点度数和等于二倍边数</strong></p>
+<p>顶点和结点是一个概念</p>
+</blockquote>
+<p>无向图G中有16条边,且每个结点的度数均为2,则结点数是( ).</p>
+<ul>
+<li>16</li>
+</ul>
+<p>一个面图G有10条边,G中度为1的顶点有2个,其余是度为6的顶点,则G中共有( )个顶点.</p>
+<ul>
+<li>5</li>
+</ul>
+<h3 id="n阶完全图有几条边"><a href="#n阶完全图有几条边" class="headerlink" title="n阶完全图有几条边"></a>n阶完全图有几条边</h3><blockquote>
+<p>**一个n阶完全图中边的数目为  <code>n(n-1)/2</code>  **</p>
+</blockquote>
+<p>一个10阶完全图<img src="https://p.ananas.chaoxing.com/star3/origin/f022913e9309d3589cb548aa7df371aa.png" alt="img"> 中有( )条边.</p>
+<ul>
+<li>45</li>
+</ul>
+<p>一个9阶完全图<img src="https://p.ananas.chaoxing.com/star3/origin/09e760c72a16fc41205c16b18ca138dc.png" alt="img"> 中有( )条边</p>
+<ul>
+<li>36</li>
+</ul>
+<h3 id="有向图长度为XX的通路数量"><a href="#有向图长度为XX的通路数量" class="headerlink" title="有向图长度为XX的通路数量"></a>有向图长度为XX的通路数量</h3><blockquote>
+<p><strong>看经过几条边到这个节点就是长度为几，能到就是通路</strong></p>
+<p><strong>注意方向</strong></p>
+</blockquote>
+<p>有向图D如图所示。</p>
+<p>D中<img src="https://p.ananas.chaoxing.com/star3/origin/91c6888a2df71da678e315835d0aae29.png" alt="img">到<img src="https://p.ananas.chaoxing.com/star3/origin/8f4f067c4737b50bb37a65cd7c4c5408.png" alt="img"> 长度为2的通路数____________0___。</p>
+<p>D中<img src="https://p.ananas.chaoxing.com/star3/origin/91c6888a2df71da678e315835d0aae29.png" alt="img">到<img src="https://p.ananas.chaoxing.com/star3/origin/91c6888a2df71da678e315835d0aae29.png" alt="img"> 长度为2的回路数_________1______。</p>
+<p>v3到<img src="https://p.ananas.chaoxing.com/star3/origin/3d794a0f279b1d7511cc369403687dbf.png" alt="img"> 长度为2的回路数____________1___</p>
+<p><img src="https://p.ananas.chaoxing.com/star3/origin/e355d6bb375a75b89dda3bd60df5ea3c.png" alt="img"></p>
+<p>下面图中B到D长度为2的通路数是(  <code>2 </code>).<br><img src="https://p.ananas.chaoxing.com/star3/origin/681fa44407f9796ba08d8bb72258f007.png" alt="img"></p>
+<h3 id="欧拉图和哈密顿图"><a href="#欧拉图和哈密顿图" class="headerlink" title="欧拉图和哈密顿图"></a>欧拉图和哈密顿图</h3><blockquote>
+<p>欧拉图要求节点度数是偶数</p>
+<p>欧拉图是通过一个边只有一次的回路</p>
+<p>哈密顿图是通过一个结点只有一次的回路</p>
+</blockquote>
+<p>下面既是哈密顿图又是欧拉图的图形是( ).</p>
+<ul>
+<li><em>A、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/cafdfab7bc9dfc3193bfa9cc07df0a8c.png" alt="img"></a></li>
+<li><em>B、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/434f2570d34e62bded01247d76fb6236.png" alt="img"></a></li>
+<li><em>C、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/1a4ec5605fc1aa7db7e203630659b61a.png" alt="img"></a></li>
+<li><em>D、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/7306d3a65fdc2e45410cce778709bcad.png" alt="img"></a></li>
+</ul>
+<p>我的答案：D得分： 2.0分</p>
+<p><em>24</em></p>
+<p>下面既是哈密顿图又是欧拉图的图形是( ).</p>
+<ul>
+<li><em>A、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/ab1df690f27574e5cef043bd85c16166.png" alt="img"></a></li>
+<li><em>B、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/6f0e43ef5e845d8a0a75e302ffc58821.png" alt="img"></a></li>
+<li><em>C、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/b5a22aafd7f1d8b8a078739d071c1277.png" alt="img"></a></li>
+<li><em>D、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/26f445dd582e7390a1a493c8e8769849.png" alt="img"></a></li>
+</ul>
+<p>我的答案：D得分： 2.0分</p>
+<p><em>25</em></p>
+<p>下列各图中既是欧拉图,又是哈密顿图的是( ).</p>
+<ul>
+<li><em>A、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/94445c952fd41cb56c00f04f1b752b2d.png" alt="img"></a></li>
+<li><em>B、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/c69862b911ecf1c9b82cc06ae5732b98.png" alt="img"></a></li>
+<li><em>C、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/1b1970459d5a444e8a3741f385600569.png" alt="img"></a></li>
+<li><em>D、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/6bd7ee82eb06afea24ed676e4629cda9.png" alt="img"></a></li>
+</ul>
+<p>我的答案：C得分： 2.0分</p>
+<p><em>26</em></p>
+<p>下面哪个图是欧拉图( ).</p>
+<ul>
+<li><em>A、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/d7c08b46262ff092542f8fa6e8587880.png" alt="img"></a></li>
+<li><em>B、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/9e6ccff84f944505a7b504a2ee08d98c.png" alt="img"></a></li>
+<li><em>C、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/a46da08bfd3620e37eb9805b4d17b009.png" alt="img"></a></li>
+<li><em>D、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/95ce9428a15851f2e1ea0e3bfed5ce06.png" alt="img"></a></li>
+</ul>
+<p>我的答案：D得分： 2.0分</p>
+<p><em>27</em></p>
+<p>下面不可以一笔画出的图是( ).</p>
+<ul>
+<li><em>A、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/c196a6bf8ba0a89e34b43eba48448287.png" alt="img"></a></li>
+<li><em>B、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/5aa2efccce1b05ee45f3289eca6ac98f.png" alt="img"></a></li>
+<li><em>C、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/2f6991860aed205f39aee3043275edad.png" alt="img"></a></li>
+<li><em>D、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/23710c48ac407adc97c471167575df63.png" alt="img"></a></li>
+</ul>
+<p>我的答案：B得分： 2.0分</p>
+<p><em>28</em></p>
+<p>下面哪个图是欧拉图:</p>
+<ul>
+<li><em>A、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/594942813861f74752594779412bdd04.png" alt="img"></a></li>
+<li><em>B、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/3ea19da5e633beacfd51d3a5251b45d0.png" alt="img"></a></li>
+<li><em>C、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/ede04b2f6398053fc6be20856d6ce0bc.png" alt="img"></a></li>
+<li><em>D、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/10baf67f26d1bf4b3f88e0de4238625f.png" alt="img"></a></li>
+</ul>
+<p>我的答案：D得分： 2.0分</p>
+<p><em>29</em></p>
+<p>下面哪个图是欧拉图( )</p>
+<ul>
+<li><em>A、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/e856b8a051b195f2e8a71aab4e47c843.png" alt="img"></a></li>
+<li><em>B、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/a3ea829d22eb3d33a842e5284be3cfd4.png" alt="img"></a></li>
+<li><em>C、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/0ffd278e3d11ba364772481781806f59.png" alt="img"></a></li>
+<li><em>D、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/585c64a32854d4accfa8d7ab1a2e1c8b.png" alt="img"></a></li>
+</ul>
+<p>我的答案：D得分： 2.0分</p>
+<p><em>30</em></p>
+<p>下面哪个图是欧拉图:</p>
+<ul>
+<li><em>A、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/d4b4598df98aea847f18991fa9a33995.png" alt="img"></a></li>
+<li><em>B、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/0fd4cc3bb38f5093031e0624a9cdc513.png" alt="img"></a></li>
+<li><em>C、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/f8da538c18aa7ab6ffc7e1fa6a25accf.png" alt="img"></a></li>
+<li><em>D、</em><a href="javascript:void(0)"><img src="https://p.ananas.chaoxing.com/star3/origin/c323caa145e3a762bd0b204f222cfc89.png" alt="img"></a></li>
+</ul>
+<p>我的答案：D得分： 2.0分</p>
+<h3 id="填空题"><a href="#填空题" class="headerlink" title="填空题"></a>填空题</h3><blockquote>
+<p>通路：顶点与边的交替序列</p>
+<p>回路：首尾相连的通路，起点与终点是同一个点</p>
+</blockquote>
+<p>既不含平行边也不含环的无向图称为____.</p>
+<p>简单图</p>
+<p>若无向图中关联两个顶点的边多于1条,则称这些边为____.</p>
+<p>平行边</p>
+<p>无向图G中的一条通路,若通路中的边两两不同,则称该通路为____.</p>
+<p>简单通路</p>
+<p>无向图G中的一条回路,若回路中的边两两不同,则称该回路为____.</p>
+<p>简单回路</p>
+<p>无向图G中的一条通路,若通路经过的顶点各不相同,则称该通路为</p>
+<p>初级通路</p>
+<h3 id="判断题-1"><a href="#判断题-1" class="headerlink" title="判断题"></a>判断题</h3><p><em>1</em></p>
+<p>无向图G具有一条欧拉通路,当且仅当G是连通图,且仅有零个或两个奇数度结点.</p>
+<p>我的答案：<em>√</em>得分： 2.0分</p>
+<p><em>2</em></p>
+<p>无向图G具有一条欧拉回路,当且仅当G是连通图,并且所有结点的度数都是奇数.</p>
+<p>我的答案：<em>×</em>得分： 2.0分</p>
+<p><em>3</em></p>
+<p>通过图G中每条边一次且仅一次的回路称为欧拉回路.</p>
+<p>我的答案：<em>√</em>得分： 2.0分</p>
+<p><em>4</em></p>
+<p>通过图G中每条边一次且仅一次的通路称为欧拉回路.</p>
+<p>我的答案：<em>×</em>得分： 2.0分</p>
+<p><em>5</em></p>
+<p>一个连通的无向图G,若它的所有结点的度数都是偶数,则它具有欧拉回路.</p>
+<p>我的答案：<em>√</em>得分： 2.0分</p>
+<p><em>6</em></p>
+<p>通过G中每个顶点一次且仅一次的回路称为哈密顿回路.</p>
+<p>我的答案：<em>√</em></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">王哲</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://oliverloki.github.io/course/%E7%A6%BB%E6%95%A3%E9%94%99%E9%A2%98/">https://oliverloki.github.io/course/%E7%A6%BB%E6%95%A3%E9%94%99%E9%A2%98/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">王哲</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E6%9C%9F%E6%9C%AB%E6%95%B4%E7%90%86/">
+                                    <span class="chip bg-color">离散数学期末整理</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">为爱充电</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/course/%7F%E9%80%89%E6%8B%A9/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Git学习笔记01 --- 知识储备">
+                        
+                        <span class="card-title">Git学习笔记01 --- 知识储备</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-01
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/course/" class="post-category">
+                                    course
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%80%89%E6%8B%A9%E9%A2%98/">
+                        <span class="chip bg-color">操作系统选择题</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/Mybatis/Mybatis%E8%AF%A6%E7%BB%86%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B004--%E5%B7%A5%E5%85%B7%E7%B1%BB&%E4%BD%BF%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%88%9B%E5%BB%BAmybatis%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Mybatis详细入门笔记04--工具类&amp;使用模板创建mybatis配置文件">
+                        
+                        <span class="card-title">Mybatis详细入门笔记04--工具类&amp;使用模板创建mybatis配置文件</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-31
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Mybatis/" class="post-category">
+                                    Mybatis
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/mybatis/">
+                        <span class="chip bg-color">mybatis</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                    <a href="/tags/jdbc/">
+                        <span class="chip bg-color">jdbc</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Loki’s blog<br />'
+            + '文章作者: 王哲<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year"></span>
+            
+            <span id="year"></span>
+            <a href="/about" target="_blank">王哲</a>
+      
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;文章总字数:&nbsp;<span
+                        class="white-color">51.4k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总浏览量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总浏览人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "3";
+                        var startDate = "18";
+                        var startHour = "8";
+                        var startMinute = "21";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1092843718" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1092843718" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+
+    <a href="https://blog.csdn.net/Night__breeze" class="tooltipped" target="_blank" data-tooltip="关注我的CSDN: https://blog.csdn.net/Night__breeze" data-position="top" data-delay="50">
+        <i class="fab fa-csdn">C</i>
+    </a>
+
+
+    <a href="https://sm.ms/image/nqcaCQZKW1Bt5iR" class="tooltipped" target="_blank" data-tooltip="微信联系我: https://sm.ms/image/nqcaCQZKW1Bt5iR" data-position="top" data-delay="50">
+        <i class="fab fa-weixin"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
